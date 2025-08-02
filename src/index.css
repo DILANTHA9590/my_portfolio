@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+
+:root {
+  --custom-dark: #f7f9fc;
+  --title-1-text: 30px;
+}
