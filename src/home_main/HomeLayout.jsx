@@ -29,7 +29,7 @@ export default function HomeLayout() {
               <Link to="/projects">PROJECTS</Link>
               <Link to="/contact">CONTACT</Link>
             </div>
-            <div className="flex h-full items-center justify-center">
+            <div className="flex items-center justify-center h-full">
               <div>
                 <img
                   src="/icons8-light-mode-78 (1).png"
@@ -38,13 +38,13 @@ export default function HomeLayout() {
               </div>
 
               <div className="h-full w-27 bg-[#8B5CFF] flex flex-col justify-evenly items-center p-3 px-5">
-                <div className="bg-black h-2 w-full"></div>
-                <div className="bg-black h-2 w-full "></div>
-                <div className="bg-black h-2 w-full"></div>
+                <div className="w-full h-2 bg-black"></div>
+                <div className="w-full h-2 bg-black "></div>
+                <div className="w-full h-2 bg-black"></div>
               </div>
             </div>
           </div>
-          <div className="h-[85vh] bg-amber-600">
+          <div className="h-[85vh] ">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="about" element={<About />} />
