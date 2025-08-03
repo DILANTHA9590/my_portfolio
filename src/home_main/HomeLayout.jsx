@@ -68,7 +68,7 @@ export default function HomeLayout() {
               </div>
             </div>
             <motion.div
-              className="absolute w-full border-2 -bottom-61 border-t-accent "
+              className="absolute w-full border-2 -bottom-61 border-t-accent sm:hidden"
               initial={false}
               animate={{ bottom: show ? "-251px" : "100px" }}
             >
@@ -78,6 +78,7 @@ export default function HomeLayout() {
                     key={link.name}
                     onClick={() => {
                       setLine(link.name);
+                      setShowMenu(false);
                     }}
                     to={link.path}
                     className={`transition-colors hover:text-accent ${
