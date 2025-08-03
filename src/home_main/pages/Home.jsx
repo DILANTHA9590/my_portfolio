@@ -2,10 +2,19 @@ import React from "react";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useContext } from "react";
+import { DarkContext } from "../../utillls/context";
 
 export default function Home() {
+  const { dark } = useContext(DarkContext);
+
+  console.log("hello", dark);
   return (
-    <div className="flex flex-col justify-center h-full min-h-full px-4 text-white font-inter sm:px-6 lg:px-8">
+    <div
+      className={`flex flex-col justify-center h-full min-h-full px-4  font-inter sm:px-6 lg:px-8   ${
+        dark != "false" ? "  text-textwhite" : " text-textblack"
+      }`}
+    >
       <div className="flex flex-col w-full gap-6 mx-auto sm:flex-row max-w-7xl sm:gap-8">
         {/* Text Section */}
         <div className="sm:w-[55%] flex flex-col justify-center items-start gap-y-5 sm:gap-y-8">
