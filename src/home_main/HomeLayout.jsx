@@ -11,18 +11,13 @@ import Home from "./pages/Home";
 export default function HomeLayout() {
   return (
     <>
-      <div className="h-[100vh]  bg-[#0A101A] ">
+      <div className="h-[100vh]  bg-primary font-inter">
         <div className="w-[80%] mx-auto">
-          <div className="h-[15vh] bg-[#17263A] flex justify-between items-center text-white">
+          <div className="h-[15vh] bg-secondary flex justify-between items-center text-white">
             <div>
-              <h1
-                className="font-bold"
-                style={{ fontSize: "var(--title-1-text)" }}
-              >
-                DILANTHA
-              </h1>
+              <h1 className="font-bold text-main_title">DILANTHA</h1>
             </div>
-            <div className="flex gap-5 font-bold">
+            <div className="flex gap-5 font-bold text-description">
               <Link to="/">HOME</Link>
               <Link to="/about">ABOUT</Link>
               <Link to="/services">SERVICES</Link>
@@ -37,7 +32,7 @@ export default function HomeLayout() {
                 />
               </div>
 
-              <div className="h-full w-27 bg-[#8B5CFF] flex flex-col justify-evenly items-center p-3 px-5">
+              <div className="flex flex-col items-center h-full p-3 px-5 w-27 bg-accent justify-evenly">
                 <div className="w-full h-2 bg-black"></div>
                 <div className="w-full h-2 bg-black "></div>
                 <div className="w-full h-2 bg-black"></div>
