@@ -21,6 +21,11 @@ module.exports = {
       fontFamily: {
         inter: ["Inter", "sans-serif"], // Optional font
       },
+
+      textColor: {
+        textwhite: "#FFFFFF",
+        textblack: "#000000",
+      },
     },
   },
   plugins: [],
