@@ -17,12 +17,14 @@ export default function HomeLayout() {
             <div>
               <h1 className="font-bold text-main_title">DILANTHA</h1>
             </div>
-            <div className="flex gap-5 font-bold text-description">
-              <Link to="/">HOME</Link>
-              <Link to="/about">ABOUT</Link>
-              <Link to="/services">SERVICES</Link>
-              <Link to="/projects">PROJECTS</Link>
-              <Link to="/contact">CONTACT</Link>
+            <div className="hidden sm:block">
+              <div className="flex gap-5 font-bold text-description ">
+                <Link to="/">HOME</Link>
+                <Link to="/about">ABOUT</Link>
+                <Link to="/services">SERVICES</Link>
+                <Link to="/projects">PROJECTS</Link>
+                <Link to="/contact">CONTACT</Link>
+              </div>
             </div>
             <div className="flex items-center justify-center h-full">
               <div>
