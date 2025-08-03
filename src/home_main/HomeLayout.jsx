@@ -11,8 +11,8 @@ export default function HomeLayout() {
   return (
     <>
       <div className="h-[100vh]  bg-primary font-inter">
-        <div className="w-[80%] mx-auto">
-          <div className="h-[15vh] bg-secondary flex justify-between items-center text-white">
+        <div className="sm:w-[80%] mx-auto">
+          <div className="sm:h-[15vh] bg-secondary flex justify-between items-center text-white">
             <div>
               <h1 className="font-bold text-main_title">DILANTHA</h1>
             </div>
@@ -33,7 +33,7 @@ export default function HomeLayout() {
                 />
               </div>
 
-              <div className="flex flex-col items-center h-full p-3 px-5 w-27 bg-accent justify-evenly">
+              <div className="flex flex-col items-center w-20 h-20 p-3 px-5 sm:h-full sm:w-27 bg-accent justify-evenly ">
                 <div className="w-full h-2 bg-black"></div>
                 <div className="w-full h-2 bg-black "></div>
                 <div className="w-full h-2 bg-black"></div>
