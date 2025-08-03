@@ -5,17 +5,23 @@ import "./App.css";
 import HomeLayout from "./home_main/HomeLayout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import { DarkContext } from "./utillls/context";
+import { h1 } from "framer-motion/client";
 
 function App() {
+  const [dark, setDark] = useState(() => localStorage.getItem("darkmode"));
+
   return (
     <>
-      <BrowserRouter>
-        <Toaster />
+      <DarkContext.Provider value={{ dark, setDark }}>
+        <BrowserRouter>
+          <Toaster />
 
-        <Routes>
-          <Route path="/*" element={<HomeLayout />} />
-        </Routes>
-      </BrowserRouter>
+          <Routes>
+            <Route path="/*" element={<HomeLayout />} />
+          </Routes>
+        </BrowserRouter>
+      </DarkContext.Provider>
     </>
   );
 }
