@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
 import About from "./pages/About";
@@ -7,10 +7,15 @@ import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import { motion } from "framer-motion";
+import { DarkContext } from "../utillls/context";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { CiLight } from "react-icons/ci";
 
 export default function HomeLayout() {
   const [line, setLine] = React.useState("HOME");
   const [show, setShowMenu] = React.useState(false);
+
+  const { dark, setDark } = useContext(DarkContext);
   const navLinks = [
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
@@ -18,12 +23,34 @@ export default function HomeLayout() {
     { name: "PROJECTS", path: "/projects" },
     { name: "CONTACT", path: "/contact" },
   ];
+
+  const handleDarkMode = (value) => {
+    localStorage.setItem("darkmode", value);
+  };
+
+  function checkDarkMode() {
+    const darkMode = localStorage.getItem("darkmode");
+    if (darkMode !== "false") {
+      setDark(darkMode);
+    } else {
+      setDark(darkMode);
+    }
+  }
+
   return (
     <>
-      <div className="h-[100vh]  bg-primary font-inter">
+      <div
+        className={`h-[100vh] ${
+          dark != "false" ? "bg-primary" : "bg-[#d9dcdf]"
+        } font-inter`}
+      >
         <div className="sm:w-[80%] mx-auto">
           <div className="relative flex flex-col ">
-            <div className="sm:h-[15vh]  bg-secondary flex justify-between items-center text-white relative">
+            <div
+              className={`sm:h-[15vh]  flex justify-between items-center relative ${
+                dark != "false" ? "bg-secondary  text-white" : "bg-[#eaeaea] "
+              }`}
+            >
               <div>
                 <h1 className="text-xl font-bold sm:text-main_title">
                   DILANTHA
@@ -49,10 +76,26 @@ export default function HomeLayout() {
               </div>
               <div className="flex items-center justify-center h-full">
                 <div>
-                  <img
-                    src="/icons8-light-mode-78 (1).png"
-                    alt="light mode icon"
-                  />
+                  {dark != "false" ? (
+                    <motion.div
+                      initial={{ rotate: 0 }}
+                      animate={{ rotate: 180 }}
+                      onClick={() => {
+                        handleDarkMode(false);
+                        checkDarkMode();
+                      }}
+                    >
+                      <CiLight className="h-20 w-15" />
+                    </motion.div>
+                  ) : (
+                    <MdOutlineDarkMode
+                      className="h-20 w-15"
+                      onClick={() => {
+                        handleDarkMode(true);
+                        checkDarkMode();
+                      }}
+                    />
+                  )}
                 </div>
 
                 <div className="h-full sm:p-1">
