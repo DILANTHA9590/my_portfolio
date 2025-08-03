@@ -51,7 +51,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/framer.png"
               alt="framer_logo"
-              className="absolute w-16 left-9 top-24 sm:w-20 md:w-24"
+              className="absolute w-16 left-9 top-24 sm:w-20 md:w-24 animate-pulse"
             />
 
             <motion.img
@@ -60,15 +60,15 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/react.png"
               alt="framer_logo"
-              className="absolute top-0 right-0 hidden w-10 left-90 sm:w-20 md:w-24 sm:block"
+              className="absolute top-0 right-0 hidden w-10 left-90 sm:w-20 md:w-24 sm:block animate-pulse"
             />
             <motion.img
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ x: -100, scale: 0.8, opacity: 0 }}
+              animate={{ x: 0, scale: 1, opacity: 3 }}
               transition={{ duration: 2 }}
               src="/home_icons/react.png"
               alt="framer_logo"
-              className="absolute w-10 right-10 top-5 sm:w-20 md:w-24 sm:hidden"
+              className="absolute w-10 right-10 top-5 sm:w-20 md:w-24 sm:hidden animate-pulse"
             />
             <motion.img
               initial={{ opacity: 0, scale: 0.8 }}
@@ -76,7 +76,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/github.png"
               alt="framer_logo"
-              className="absolute w-10 right-16 top-18 sm:w-20 md:w-24 sm:hidden"
+              className="absolute w-10 right-16 top-18 sm:w-20 md:w-24 sm:hidden animate-pulse"
             />
 
             <motion.img
@@ -85,7 +85,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/nextjs.png"
               alt="framer_logo"
-              className="absolute w-13 right-5 top-45 sm:w-20 md:w-25 sm:hidden"
+              className="absolute w-13 right-5 top-45 sm:w-20 md:w-25 sm:hidden animate-pulse"
             />
 
             <motion.img
@@ -94,7 +94,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/nodejs.png"
               alt="framer_logo"
-              className="absolute right-0 w-13 top-61 sm:w-20 md:w-25 sm:hidden"
+              className="absolute right-0 w-13 top-61 sm:w-20 md:w-25 sm:hidden animate-pulse"
             />
             <motion.img
               initial={{ opacity: 0, scale: 0.8 }}
@@ -102,7 +102,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/mongo.png"
               alt="framer_logo"
-              className="absolute w-10 -right-2 top-35 sm:w-20 md:w-25 sm:hidden"
+              className="absolute w-10 -right-2 top-35 sm:w-20 md:w-25 sm:hidden animate-pulse"
             />
 
             <motion.img
@@ -111,7 +111,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/tailwind.png"
               alt="framer_logo"
-              className="absolute -right-2 w-15 top-18 sm:w-20 md:w-24 sm:hidden"
+              className="absolute -right-2 w-15 top-18 sm:w-20 md:w-24 sm:hidden animate-pulse"
             />
 
             <motion.img
@@ -120,7 +120,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/tailwind.png"
               alt="framer_logo"
-              className="absolute -right-2 w-15 top-18 sm:w-20 md:w-24 sm:hidden"
+              className="absolute -right-2 w-15 top-18 sm:w-20 md:w-24 sm:hidden animate-pulse"
             />
 
             <motion.img
@@ -129,7 +129,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/github.png"
               alt="framer_logo"
-              className="absolute hidden w-10 top-30 right-9 left-80 sm:w-20 md:w-24 sm:block"
+              className="absolute hidden w-10 top-30 right-9 left-80 sm:w-20 md:w-24 sm:block animate-pulse"
             />
 
             <motion.img
@@ -138,7 +138,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/nextjs.png"
               alt="framer_logo"
-              className="absolute hidden top-70 right-12 sm:w-20 md:w-15 sm:block "
+              className="absolute hidden top-70 right-12 sm:w-20 md:w-15 sm:block animate-pulse "
             />
 
             <img
@@ -147,7 +147,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/nextjs.png"
               alt="framer_logo"
-              className="absolute hidden top-70 right-12 sm:w-20 md:w-15 sm:block "
+              className="absolute hidden top-70 right-12 sm:w-20 md:w-15 sm:block animate animate-pulse "
             />
 
             <motion.img
@@ -156,7 +156,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/nodejs.png"
               alt="framer_logo"
-              className="absolute hidden top-90 -right-0 sm:w-20 w-15 sm:block "
+              className="absolute hidden top-90 -right-0 sm:w-20 w-15 sm:block animate-pulse"
             />
             <motion.img
               initial={{ opacity: 0, scale: 0.8 }}
@@ -164,7 +164,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/mongo.png"
               alt="framer_logo"
-              className="absolute right-0 hidden w-20 top-60 md:w-15 sm:block "
+              className="absolute right-0 hidden w-20 top-60 md:w-15 sm:block animate-pulse"
             />
             <motion.img
               initial={{ opacity: 0, scale: 0.8 }}
@@ -172,7 +172,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/tailwind.png"
               alt="framer_logo"
-              className="absolute hidden -right-10 top-30 sm:w-20 md:w-24 sm:block"
+              className="absolute hidden -right-10 top-30 sm:w-20 md:w-24 sm:block animate-pulse"
             />
           </div>
         </div>
