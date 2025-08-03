@@ -1,6 +1,7 @@
 import React from "react";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
           <div className="w-full max-w-xs sm:max-w-sm">
             <Link
               to="/cv"
-              className="flex items-center justify-center w-full h-12 p-4 font-semibold text-white transition rounded-lg gap-x-3 bg-accent hover:bg-purple-700"
+              className="flex items-center justify-center h-12 p-4 font-semibold text-white transition rounded-lg w-50 gap-x-3 bg-accent hover:bg-purple-700"
             >
               <span>DOWNLOAD CV</span>
               <MdOutlineFileDownload className="text-xl" />
@@ -34,93 +35,141 @@ export default function Home() {
         </div>
 
         {/* Image Section */}
-        <div className="sm:w-[45%] flex justify-center items-center h-[40vh] sm:h-auto">
+        <div className="sm:w-[45%] flex justify-center items-center h-[40vh] sm:h-auto mt-2">
           <div className="relative w-full  sm:max-w-[400px] md:max-w-[500px] aspect-square rounded-full bg-[#761E1E] ">
-            <img
+            <motion.img
               src="/home_icons/testuser.png"
               alt="user_logo"
               // className="absolute w-20 -left-10 sm:w-24"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
             />
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/framer.png"
               alt="framer_logo"
               className="absolute w-16 left-9 top-24 sm:w-20 md:w-24"
             />
 
-            <img
+            <motion.img
+              initial={{ x: -100, scale: 0.8, opacity: 0 }}
+              animate={{ x: 0, scale: 1, opacity: 3 }}
+              transition={{ duration: 2 }}
               src="/home_icons/react.png"
               alt="framer_logo"
               className="absolute top-0 right-0 hidden w-10 left-90 sm:w-20 md:w-24 sm:block"
             />
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/react.png"
               alt="framer_logo"
               className="absolute w-10 right-10 top-5 sm:w-20 md:w-24 sm:hidden"
             />
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/github.png"
               alt="framer_logo"
               className="absolute w-10 right-16 top-18 sm:w-20 md:w-24 sm:hidden"
             />
 
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/nextjs.png"
               alt="framer_logo"
               className="absolute w-13 right-5 top-45 sm:w-20 md:w-25 sm:hidden"
             />
 
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/nodejs.png"
               alt="framer_logo"
               className="absolute right-0 w-13 top-61 sm:w-20 md:w-25 sm:hidden"
             />
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/mongo.png"
               alt="framer_logo"
               className="absolute w-10 -right-2 top-35 sm:w-20 md:w-25 sm:hidden"
             />
 
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/tailwind.png"
               alt="framer_logo"
               className="absolute -right-2 w-15 top-18 sm:w-20 md:w-24 sm:hidden"
             />
 
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/tailwind.png"
               alt="framer_logo"
               className="absolute -right-2 w-15 top-18 sm:w-20 md:w-24 sm:hidden"
             />
 
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/github.png"
               alt="framer_logo"
               className="absolute hidden w-10 top-30 right-9 left-80 sm:w-20 md:w-24 sm:block"
             />
 
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/nextjs.png"
               alt="framer_logo"
               className="absolute hidden top-70 right-12 sm:w-20 md:w-15 sm:block "
             />
 
             <img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/nextjs.png"
               alt="framer_logo"
               className="absolute hidden top-70 right-12 sm:w-20 md:w-15 sm:block "
             />
 
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/nodejs.png"
               alt="framer_logo"
               className="absolute hidden top-90 -right-0 sm:w-20 w-15 sm:block "
             />
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/mongo.png"
               alt="framer_logo"
               className="absolute right-0 hidden w-20 top-60 md:w-15 sm:block "
             />
-            <img
+            <motion.img
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 2 }}
               src="/home_icons/tailwind.png"
               alt="framer_logo"
               className="absolute hidden -right-10 top-30 sm:w-20 md:w-24 sm:block"
