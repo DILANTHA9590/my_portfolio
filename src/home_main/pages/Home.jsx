@@ -8,7 +8,7 @@ export default function Home() {
       <div className="flex flex-col w-full gap-6 mx-auto sm:flex-row max-w-7xl sm:gap-8">
         {/* Text Section */}
         <div className="sm:w-[55%] flex flex-col justify-center items-start gap-y-5 sm:gap-y-8">
-          <div className="text-2xl font-bold leading-tight sm:text-main_title">
+          <div className="text-xl font-bold leading-tight sm:text-main_title">
             <h1>HI, I'M DILANTHA NAYANAJITH!</h1>
             <h1>A STUDENT AND FULL STACK DEVELOPER</h1>
           </div>
@@ -35,18 +35,96 @@ export default function Home() {
 
         {/* Image Section */}
         <div className="sm:w-[45%] flex justify-center items-center h-[40vh] sm:h-auto">
-          <div className="relative w-full max-w-[300px] sm:max-w-[400px] md:max-w-[500px] aspect-square rounded-full bg-[#761E1E] overflow-hidden">
-            {/* Uncomment and adjust image paths as needed */}
-            {/* <img
+          <div className="relative w-full  sm:max-w-[400px] md:max-w-[500px] aspect-square rounded-full bg-[#761E1E] ">
+            <img
               src="/home_icons/testuser.png"
               alt="user_logo"
-              className="absolute w-20 -left-10 sm:w-24"
+              // className="absolute w-20 -left-10 sm:w-24"
             />
             <img
               src="/home_icons/framer.png"
               alt="framer_logo"
               className="absolute w-16 left-9 top-24 sm:w-20 md:w-24"
-            /> */}
+            />
+
+            <img
+              src="/home_icons/react.png"
+              alt="framer_logo"
+              className="absolute top-0 right-0 hidden w-10 left-90 sm:w-20 md:w-24 sm:block"
+            />
+            <img
+              src="/home_icons/react.png"
+              alt="framer_logo"
+              className="absolute w-10 right-10 top-5 sm:w-20 md:w-24 sm:hidden"
+            />
+            <img
+              src="/home_icons/github.png"
+              alt="framer_logo"
+              className="absolute w-10 right-16 top-18 sm:w-20 md:w-24 sm:hidden"
+            />
+
+            <img
+              src="/home_icons/nextjs.png"
+              alt="framer_logo"
+              className="absolute w-13 right-5 top-45 sm:w-20 md:w-25 sm:hidden"
+            />
+
+            <img
+              src="/home_icons/nodejs.png"
+              alt="framer_logo"
+              className="absolute right-0 w-13 top-61 sm:w-20 md:w-25 sm:hidden"
+            />
+            <img
+              src="/home_icons/mongo.png"
+              alt="framer_logo"
+              className="absolute w-10 -right-2 top-35 sm:w-20 md:w-25 sm:hidden"
+            />
+
+            <img
+              src="/home_icons/tailwind.png"
+              alt="framer_logo"
+              className="absolute -right-2 w-15 top-18 sm:w-20 md:w-24 sm:hidden"
+            />
+
+            <img
+              src="/home_icons/tailwind.png"
+              alt="framer_logo"
+              className="absolute -right-2 w-15 top-18 sm:w-20 md:w-24 sm:hidden"
+            />
+
+            <img
+              src="/home_icons/github.png"
+              alt="framer_logo"
+              className="absolute hidden w-10 top-30 right-9 left-80 sm:w-20 md:w-24 sm:block"
+            />
+
+            <img
+              src="/home_icons/nextjs.png"
+              alt="framer_logo"
+              className="absolute hidden top-70 right-12 sm:w-20 md:w-15 sm:block "
+            />
+
+            <img
+              src="/home_icons/nextjs.png"
+              alt="framer_logo"
+              className="absolute hidden top-70 right-12 sm:w-20 md:w-15 sm:block "
+            />
+
+            <img
+              src="/home_icons/nodejs.png"
+              alt="framer_logo"
+              className="absolute hidden top-90 -right-0 sm:w-20 w-15 sm:block "
+            />
+            <img
+              src="/home_icons/mongo.png"
+              alt="framer_logo"
+              className="absolute right-0 hidden w-20 top-60 md:w-15 sm:block "
+            />
+            <img
+              src="/home_icons/tailwind.png"
+              alt="framer_logo"
+              className="absolute hidden -right-10 top-30 sm:w-20 md:w-24 sm:block"
+            />
           </div>
         </div>
       </div>

@@ -14,7 +14,7 @@ export default function HomeLayout() {
         <div className="sm:w-[80%] mx-auto">
           <div className="sm:h-[15vh] bg-secondary flex justify-between items-center text-white">
             <div>
-              <h1 className="font-bold text-main_title">DILANTHA</h1>
+              <h1 className="text-xl font-bold sm:text-main_title">DILANTHA</h1>
             </div>
             <div className="hidden sm:block">
               <div className="flex gap-5 font-bold text-description ">
@@ -33,10 +33,12 @@ export default function HomeLayout() {
                 />
               </div>
 
-              <div className="flex flex-col items-center w-20 h-20 p-3 px-5 sm:h-full sm:w-27 bg-accent justify-evenly ">
-                <div className="w-full h-2 bg-black"></div>
-                <div className="w-full h-2 bg-black "></div>
-                <div className="w-full h-2 bg-black"></div>
+              <div className="h-full sm:p-1">
+                <div className="flex flex-col items-center w-20 h-20 p-3 px-5 sm:h-full sm:w-27 bg-accent justify-evenly ">
+                  <div className="w-full bg-black sm:h-2 h-1.5"></div>
+                  <div className="w-full bg-black sm:h-2 h-1.5"></div>
+                  <div className="w-full bg-black sm:h-2 h-1.5"></div>
+                </div>
               </div>
             </div>
           </div>
