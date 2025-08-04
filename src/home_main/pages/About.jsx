@@ -181,6 +181,50 @@ export default function About() {
               </motion.div>
             </div>
           </motion.div>
+
+          <div className="flex flex-col sm:flex-row ">
+            <div className=" sm:w-[50%] h-[50vh] bg-secondary flex flex-col justify-evenly p-4">
+              <div>
+                <h1>Java Script</h1>
+                <motion.div
+                  className=" h-[10px] border"
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "100%", backgroundColor: "red" }}
+                  transition={{ duration: 2 }}
+                ></motion.div>
+              </div>
+              <div>
+                <h1>Node js</h1>
+                <div className=" h-[10px] border"></div>
+              </div>
+              <div>
+                <h1>React js</h1>
+                <div className=" h-[10px] border"></div>
+              </div>
+              <div>
+                <h1>java</h1>
+                <div className=" h-[10px] border"></div>
+              </div>
+            </div>
+            <div className="  h-[50vh] sm:w-[50%] bg-secondary flex flex-col justify-evenly p-4">
+              <div>
+                <h1>HTTML</h1>
+                <div className=" h-[10px] border"></div>
+              </div>
+              <div>
+                <h1>CSS</h1>
+                <div className=" h-[10px] border"></div>
+              </div>
+              <div>
+                <h1>Tailwind CSS</h1>
+                <div className=" h-[10px] border"></div>
+              </div>
+              <div>
+                <h1>Figma</h1>
+                <div className=" h-[10px] border"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
