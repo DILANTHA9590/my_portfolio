@@ -17,8 +17,10 @@ module.exports = {
 
       fontSize: {
         main_title: "1.875rem", // already default, but you can override if needed
-        secondary_title: "1.25rem", // Example: a secondary title size
+        secondary_title: "1.4rem",
+        secondarytitle: "1.875rem", // Example: a secondary title size
         description: "1.2rem", // Example: a description size
+        small: "xl",
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"], // Optional font
