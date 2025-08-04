@@ -40,7 +40,7 @@ export default function HomeLayout() {
   return (
     <>
       <div
-        className={`h-[100vh] ${
+        className={`h-[100vh] overflow-hidden overflow-y-auto ${
           dark != "false" ? "bg-primary" : "bg-primary_white"
         } font-inter`}
       >
