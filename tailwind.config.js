@@ -11,6 +11,8 @@ module.exports = {
         primary: "#0A101A", // Indigo-600
         secondary: "#17263A", // Emerald-500
         accent: "#8B5CFF", // Purple-500
+        primary_white: "#d9dcdf", // White
+        secondary_white: "#eaeaea", //
       },
 
       fontSize: {
