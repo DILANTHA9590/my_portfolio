@@ -23,7 +23,7 @@ export default function Home() {
             <h1>A STUDENT AND FULL STACK DEVELOPER</h1>
           </div>
 
-          <div className="text-sm sm:text-description md:max-w-lg">
+          <div className="text-sm sm:text-description md:max-w-lg ">
             <h3>
               I’m a passionate student and full-stack developer focused on
               building modern, user-friendly web applications. I enjoy turning
