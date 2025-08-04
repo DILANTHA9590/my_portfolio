@@ -41,14 +41,16 @@ export default function HomeLayout() {
     <>
       <div
         className={`h-[100vh] ${
-          dark != "false" ? "bg-primary" : "bg-[#d9dcdf]"
+          dark != "false" ? "bg-primary" : "bg-primary_white"
         } font-inter`}
       >
         <div className="sm:w-[80%] mx-auto">
           <div className="relative flex flex-col ">
             <div
               className={`sm:h-[15vh]  flex justify-between items-center relative ${
-                dark != "false" ? "bg-secondary  text-white" : "bg-[#eaeaea] "
+                dark != "false"
+                  ? "bg-secondary  text-white"
+                  : "bg-secondary_white "
               }`}
             >
               <div>
@@ -89,7 +91,7 @@ export default function HomeLayout() {
                     </motion.div>
                   ) : (
                     <MdOutlineDarkMode
-                      className="h-20 w-15"
+                      className="h-20 text-yellow-400 w-15"
                       onClick={() => {
                         handleDarkMode(true);
                         checkDarkMode();
@@ -98,24 +100,39 @@ export default function HomeLayout() {
                   )}
                 </div>
 
-                <div className="h-full sm:p-1">
+                <div className="h-full p-4">
                   <div
-                    className="flex flex-col items-center w-20 h-20 p-3 px-5 sm:h-full sm:w-27 bg-accent justify-evenly o"
+                    className="flex flex-col items-center justify-center p-3 px-5 rounded-md cursor-pointer h-18 w-18 sm:h-full sm:w-27 bg-accent"
                     onClick={() => setShowMenu(!show)}
                   >
-                    <div className="w-full bg-black sm:h-2 h-1.5"></div>
-                    <div className="w-full bg-black sm:h-2 h-1.5"></div>
-                    <div className="w-full bg-black sm:h-2 h-1.5"></div>
+                    {show ? (
+                      // Improved X icon with smooth animation
+                      <div className="relative w-6 h-6">
+                        <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform rotate-45 origin-center"></div>
+                        <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform -rotate-45 origin-center"></div>
+                      </div>
+                    ) : (
+                      // Hamburger icon (three lines)
+                      <div className="space-y-1.5 w-6">
+                        <div className="w-full bg-black h-0.5"></div>
+                        <div className="w-full bg-black h-0.5"></div>
+                        <div className="w-full bg-black h-0.5"></div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
             </div>
             <motion.div
-              className="absolute w-full border-2 -bottom-61 border-t-accent sm:hidden"
+              className="absolute w-full border-t-2 border-b-2 -bottom-61 border-t-accent sm:hidden border-b-accent"
               initial={false}
-              animate={{ bottom: show ? "-251px" : "100px" }}
+              animate={{ bottom: show ? "-250px" : "150px" }}
             >
-              <motion.div className="flex flex-col items-center justify-center h-full gap-5 p-3 font-bold text-description sm:hidden bg-secondary">
+              <motion.div
+                className={`flex flex-col items-center justify-center h-full gap-5 p-3 font-bold text-description sm:hidden ${
+                  dark != "false" ? "bg-secondary" : "bg-[#eaeaea]"
+                }`}
+              >
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
