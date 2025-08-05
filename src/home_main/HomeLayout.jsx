@@ -46,79 +46,81 @@ export default function HomeLayout() {
       >
         <div className="sm:w-[80%] mx-auto">
           <div className="relative flex flex-col ">
-            <div
-              className={`sm:h-[15vh]  flex justify-between items-center relative ${
-                dark != "false"
-                  ? "bg-secondary  text-white"
-                  : "bg-secondary_white "
-              }`}
-            >
-              <div>
-                <h1 className="text-xl font-bold sm:text-main_title">
-                  DILANTHA
-                </h1>
-              </div>
-              <div className="hidden sm:block">
-                <div className="flex gap-5 font-bold text-description ">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.name}
-                      onClick={() => {
-                        setLine(link.name);
-                      }}
-                      to={link.path}
-                      className={`transition-colors hover:text-accent ${
-                        line === link.name && "text-accent"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-              <div className="flex items-center justify-center h-full">
+            <div className="fixed sm:w-[80%] w-[100%]">
+              <div
+                className={`sm:h-[15vh]  flex justify-between items-center relative ${
+                  dark != "false"
+                    ? "bg-secondary  text-white"
+                    : "bg-secondary_white "
+                }`}
+              >
                 <div>
-                  {dark != "false" ? (
-                    <motion.div
-                      initial={{ rotate: 0 }}
-                      animate={{ rotate: 180 }}
-                      onClick={() => {
-                        handleDarkMode(false);
-                        checkDarkMode();
-                      }}
-                    >
-                      <CiLight className="h-20 w-15" />
-                    </motion.div>
-                  ) : (
-                    <MdOutlineDarkMode
-                      className="h-20 text-yellow-400 w-15"
-                      onClick={() => {
-                        handleDarkMode(true);
-                        checkDarkMode();
-                      }}
-                    />
-                  )}
+                  <h1 className="text-xl font-bold sm:text-main_title">
+                    DILANTHA
+                  </h1>
                 </div>
-
-                <div className="h-full p-4">
-                  <div
-                    className="flex flex-col items-center justify-center p-3 px-5 rounded-md cursor-pointer h-18 w-18 sm:h-full sm:w-27 bg-accent"
-                    onClick={() => setShowMenu(!show)}
-                  >
-                    {show ? (
-                      // Improved X icon with smooth animation
-                      <div className="relative w-6 h-6">
-                        <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform rotate-45 origin-center"></div>
-                        <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform -rotate-45 origin-center"></div>
-                      </div>
+                <div className="hidden sm:block">
+                  <div className="flex gap-5 font-bold text-description ">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        onClick={() => {
+                          setLine(link.name);
+                        }}
+                        to={link.path}
+                        className={`transition-colors hover:text-accent ${
+                          line === link.name && "text-accent"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center justify-center h-full">
+                  <div>
+                    {dark != "false" ? (
+                      <motion.div
+                        initial={{ rotate: 0 }}
+                        animate={{ rotate: 180 }}
+                        onClick={() => {
+                          handleDarkMode(false);
+                          checkDarkMode();
+                        }}
+                      >
+                        <CiLight className="h-20 w-15" />
+                      </motion.div>
                     ) : (
-                      // Hamburger icon (three lines)
-                      <div className="space-y-1.5 w-6">
-                        <div className="w-full bg-black h-0.5"></div>
-                        <div className="w-full bg-black h-0.5"></div>
-                        <div className="w-full bg-black h-0.5"></div>
-                      </div>
+                      <MdOutlineDarkMode
+                        className="h-20 text-yellow-400 w-15"
+                        onClick={() => {
+                          handleDarkMode(true);
+                          checkDarkMode();
+                        }}
+                      />
                     )}
+                  </div>
+
+                  <div className="h-full p-4">
+                    <div
+                      className="flex flex-col items-center justify-center p-3 px-5 rounded-md cursor-pointer h-18 w-18 sm:h-full sm:w-27 bg-accent"
+                      onClick={() => setShowMenu(!show)}
+                    >
+                      {show ? (
+                        // Improved X icon with smooth animation
+                        <div className="relative w-6 h-6">
+                          <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform rotate-45 origin-center"></div>
+                          <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform -rotate-45 origin-center"></div>
+                        </div>
+                      ) : (
+                        // Hamburger icon (three lines)
+                        <div className="space-y-1.5 w-6">
+                          <div className="w-full bg-black h-0.5"></div>
+                          <div className="w-full bg-black h-0.5"></div>
+                          <div className="w-full bg-black h-0.5"></div>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -126,10 +128,12 @@ export default function HomeLayout() {
             <motion.div
               className="absolute w-full border-t-2 border-b-2 -bottom-61 border-t-accent sm:hidden border-b-accent"
               initial={false}
-              animate={{ bottom: show ? "-250px" : "150px" }}
+              animate={{ bottom: show ? "-350px" : "190px" }}
             >
               <motion.div
-                className={`flex flex-col items-center justify-center h-full gap-5 p-3 font-bold text-description sm:hidden ${
+                className={`flex flex-col items-center ${
+                  dark !== "false" ? "text-primary_white" : "text-secondary"
+                } justify-center h-full gap-5 p-3 font-bold text-description sm:hidden ${
                   dark != "false" ? "bg-secondary" : "bg-[#eaeaea]"
                 }`}
               >
