@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <div
-        className={`h-full font-inter ${
+        className={`h-full font-inter mt-30 ${
           dark != "false" ? "text-textwhite" : "text-textblack"
         }`}
       >
@@ -182,46 +182,91 @@ export default function About() {
             </div>
           </motion.div>
 
+          {/* Section Skills loading bar ----------------------------------------------> */}
           <div className="flex flex-col sm:flex-row ">
-            <div className=" sm:w-[50%] h-[50vh] bg-secondary flex flex-col justify-evenly p-4">
+            <div
+              className={`sm:w-[50%] h-[50vh] bg-secondary flex flex-col justify-evenly p-4 sm:rounded-tl-4xl sm:rounded-bl-4xl 
+                 ${dark != "false" ? "" : "bg-secondary_white"}`}
+            >
               <div>
                 <h1>Java Script</h1>
+
                 <motion.div
-                  className=" h-[10px] border"
+                  className=" h-[10px] "
                   initial={{ width: "0%" }}
-                  whileInView={{ width: "100%", backgroundColor: "red" }}
+                  whileInView={{ width: "100%", backgroundColor: "#8B5CFF" }}
                   transition={{ duration: 2 }}
                 ></motion.div>
               </div>
               <div>
                 <h1>Node js</h1>
-                <div className=" h-[10px] border"></div>
+                <div>
+                  <motion.div
+                    className=" h-[10px] "
+                    initial={{ width: "0%" }}
+                    whileInView={{ width: "80%", backgroundColor: "#8B5CFF" }}
+                    transition={{ duration: 2 }}
+                  ></motion.div>
+                </div>
               </div>
               <div>
                 <h1>React js</h1>
-                <div className=" h-[10px] border"></div>
+                <motion.div
+                  className=" h-[10px] "
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "90%", backgroundColor: "#8B5CFF" }}
+                  transition={{ duration: 2 }}
+                ></motion.div>
               </div>
               <div>
                 <h1>java</h1>
-                <div className=" h-[10px] border"></div>
+                <motion.div
+                  className=" h-[10px] "
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "30%", backgroundColor: "#8B5CFF" }}
+                  transition={{ duration: 2 }}
+                ></motion.div>
               </div>
             </div>
-            <div className="  h-[50vh] sm:w-[50%] bg-secondary flex flex-col justify-evenly p-4">
+            <div
+              className={`  h-[50vh] sm:w-[50%] bg-secondary flex flex-col justify-evenly p-4 sm:rounded-tr-4xl sm:rounded-br-4xl  mt-5 sm:mt-0 mb-5
+                 ${dark != "false" ? "" : "bg-secondary_white"}`}
+            >
               <div>
-                <h1>HTTML</h1>
-                <div className=" h-[10px] border"></div>
+                <h1>HTML</h1>
+                <motion.div
+                  className=" h-[10px] "
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "90%", backgroundColor: "#8B5CFF" }}
+                  transition={{ duration: 2 }}
+                ></motion.div>
               </div>
               <div>
                 <h1>CSS</h1>
-                <div className=" h-[10px] border"></div>
+                <motion.div
+                  className=" h-[10px] "
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "90%", backgroundColor: "#8B5CFF" }}
+                  transition={{ duration: 2 }}
+                ></motion.div>
               </div>
               <div>
                 <h1>Tailwind CSS</h1>
-                <div className=" h-[10px] border"></div>
+                <motion.div
+                  className=" h-[10px] "
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "70%", backgroundColor: "#8B5CFF" }}
+                  transition={{ duration: 2 }}
+                ></motion.div>
               </div>
               <div>
                 <h1>Figma</h1>
-                <div className=" h-[10px] border"></div>
+                <motion.div
+                  className=" h-[10px] "
+                  initial={{ width: "0%" }}
+                  whileInView={{ width: "60%", backgroundColor: "#8B5CFF" }}
+                  transition={{ duration: 2 }}
+                ></motion.div>
               </div>
             </div>
           </div>
