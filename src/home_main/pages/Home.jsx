@@ -11,7 +11,7 @@ export default function Home() {
   console.log("hello", dark);
   return (
     <div
-      className={`flex flex-col justify-center h-full min-h-full px-4  font-inter sm:px-6 lg:px-8   ${
+      className={`flex flex-col justify-center h-full min-h-full px-4  font-inter sm:px-6 lg:px-8  mt-[15vh] ${
         dark != "false" ? "  text-textwhite" : " text-textblack"
       }`}
     >
