@@ -24,13 +24,21 @@ export default function Services() {
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 1 }}
-      className={`h-full mt-25 font-inter relative ${
+      transition={{ duration: 2 }}
+      className={`h-full mt-25 font-inter  z-40 relative ${
         dark !== "false" ? "text-textwhite" : "text-textblack"
       }`}
     >
       {/* Background Images */}
-      <img
+
+      <motion.img
+        initial={{
+          opacity: 0,
+        }}
+        animate={{ opacity: 3 }}
+        transition={{
+          duration: 5,
+        }}
         src="/home_icons/react.png"
         alt="React Icon"
         className="absolute left-0 mt-3 blur-sm sm:max-h-90 max-h-50"
@@ -38,12 +46,13 @@ export default function Services() {
       <img
         src="/home_icons/nodejs.png"
         alt="Node.js Icon"
-        className="absolute right-0 mt-3 top-50 blur-sm max-h-90"
+        className="absolute right-0 mt-3 sm:top-1/4 top-1/3 blur-sm max-h-90"
       />
+
       <img
         src="/home_icons/tailwind.png"
         alt="Tailwind Icon"
-        className="absolute bottom-0 blur-sm md:h-[300px] sm:h-[200px]"
+        className=" top-2/2 sm:top-11/16 absolute blur-sm md:h-[200px] sm:h-[100px] "
       />
 
       {/* Section Title */}
@@ -94,7 +103,9 @@ export default function Services() {
             } h-fit`}
           >
             <MainTitle title={service.title} text={"main_title"} sm={"2xl"} />
-            <h1 className="sm:text-secondary_title">{service.description}</h1>
+            <h1 className="font-bold sm:text-secondary_title">
+              {service.description}
+            </h1>
           </motion.div>
         ))}
       </div>
