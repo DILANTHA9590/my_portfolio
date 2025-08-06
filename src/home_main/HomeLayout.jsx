@@ -46,9 +46,9 @@ export default function HomeLayout() {
       >
         <div className="sm:w-[80%] mx-auto">
           <div className="relative flex flex-col ">
-            <div className="fixed sm:w-[80%] w-[100%]">
+            <div className="fixed sm:w-[80%] w-[100%] z-60 top-0">
               <div
-                className={`sm:h-[15vh]  flex justify-between items-center relative ${
+                className={`sm:h-[15vh]  flex justify-between items-center relative    ${
                   dark != "false"
                     ? "bg-secondary  text-white"
                     : "bg-secondary_white "
@@ -126,16 +126,16 @@ export default function HomeLayout() {
               </div>
             </div>
             <motion.div
-              className="absolute w-full border-t-2 border-b-2 -bottom-61 border-t-accent sm:hidden border-b-accent"
+              className={`fixed top-[15vh] left-0 w-full z-50  border-t-2 border-b-2 border-t-accent sm:hidden border-b-accent 
+                ${!show && "hidden"}
+                ${dark != "false" ? "bg-secondary" : "bg-[#eaeaea]"}`}
               initial={false}
-              animate={{ bottom: show ? "-350px" : "190px" }}
+              animate={{ top: show ? "15vh" : "-100%" }}
             >
               <motion.div
                 className={`flex flex-col items-center ${
                   dark !== "false" ? "text-primary_white" : "text-secondary"
-                } justify-center h-full gap-5 p-3 font-bold text-description sm:hidden ${
-                  dark != "false" ? "bg-secondary" : "bg-[#eaeaea]"
-                }`}
+                } justify-center h-full gap-5 p-3 font-bold text-description sm:hidden `}
               >
                 {navLinks.map((link) => (
                   <Link
