@@ -3,13 +3,14 @@ import { Link, Route, Routes } from "react-router-dom";
 
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Project from "./pages/Project";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import { motion } from "framer-motion";
 import { DarkContext } from "../utillls/context";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
+import ProjectMain from "./pages/ProjectMain";
+import NavBar from "./components/homelayout/NavBar";
 
 export default function HomeLayout() {
   const [line, setLine] = React.useState("HOME");
@@ -128,7 +129,7 @@ export default function HomeLayout() {
             <motion.div
               className={`fixed top-[15vh] left-0 w-full z-50  border-t-2 border-b-2 border-t-accent sm:hidden border-b-accent 
                 ${!show && "hidden"}
-                ${dark != "false" ? "bg-secondary" : "bg-[#eaeaea]"}`}
+                ${dark != "false" ? "bg-secondary" : "bg-secondary_white"}`}
               initial={false}
               animate={{ top: show ? "15vh" : "-100%" }}
             >
@@ -160,7 +161,7 @@ export default function HomeLayout() {
               <Route path="/" element={<Home />} />
               <Route path="about" element={<About />} />
               <Route path="services" element={<Services />} />
-              <Route path="projects" element={<Project />} />
+              <Route path="projects/*" element={<ProjectMain />} />
               <Route path="contact" element={<Contact />} />
 
               {/* <Route path="pe" element={<SuspenseUi />} /> */}
