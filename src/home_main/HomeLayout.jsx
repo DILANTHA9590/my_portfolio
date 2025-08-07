@@ -16,8 +16,8 @@ import { div } from "framer-motion/client";
 export default function HomeLayout() {
   const [line, setLine] = React.useState("HOME");
   const [show, setShowMenu] = React.useState(false);
-
   const { dark, setDark } = useContext(DarkContext);
+
   const navLinks = [
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
