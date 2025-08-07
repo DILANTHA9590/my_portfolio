@@ -4,10 +4,10 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { DarkContext } from "../../../utillls/context";
 export default function Project() {
-  const { dark, setDark } = useContext(DarkContext);
+  const { dark } = useContext(DarkContext);
   return (
     <div
-      className={`flex flex-col w-full h-full font-inter gap-y-5 ${
+      className={`flex flex-col w-full h-full font-inter gap-y-5 font-bold ${
         dark !== "false" ? "text-primary_white" : "text-secondary "
       }`}
     >
@@ -34,7 +34,7 @@ export default function Project() {
           <div className="flex items-center text-center justify-evenly">
             <div className="flex flex-col items-center justify-center">
               <FaGithub className="" />
-              <Link>Live Demo</Link>
+              <Link>View Code</Link>
             </div>
             <div className="flex flex-col items-center justify-center">
               <FaExternalLinkAlt />
@@ -63,7 +63,7 @@ export default function Project() {
           <div className="flex items-center text-center justify-evenly ">
             <div className="flex flex-col items-center justify-center">
               <FaGithub className="" />
-              <Link>Live Demo</Link>
+              <Link>View Code</Link>
             </div>
             <div className="flex flex-col items-center justify-center">
               <FaExternalLinkAlt />
