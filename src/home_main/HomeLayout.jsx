@@ -11,6 +11,7 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
 import ProjectMain from "./pages/ProjectMain";
 import NavBar from "./components/homelayout/NavBar";
+import { div } from "framer-motion/client";
 
 export default function HomeLayout() {
   const [line, setLine] = React.useState("HOME");
