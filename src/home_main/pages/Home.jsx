@@ -33,13 +33,14 @@ export default function Home() {
           </div>
 
           <div className="w-full max-w-xs sm:max-w-sm">
-            <Link
-              to="/cv"
+            <a
+              href="/cv.pdf"
+              download
               className="flex items-center justify-center h-12 p-4 font-semibold text-white transition rounded-lg w-50 gap-x-3 bg-accent hover:bg-purple-700"
             >
-              <span>DOWNLOAD CV</span>
+              <button>Download CV</button>
               <MdOutlineFileDownload className="text-xl" />
-            </Link>
+            </a>
           </div>
         </div>
 
