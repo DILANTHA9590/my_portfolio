@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { BiPhone } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import "react-phone-input-2/lib/style.css";
+import PhoneInput from "react-phone-input-2";
 
 export default function Contact() {
   const [data, setFormData] = useState({
