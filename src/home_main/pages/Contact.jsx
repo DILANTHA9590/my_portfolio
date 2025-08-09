@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "react-phone-input-2/lib/style.css";
 import PhoneInput from "react-phone-input-2";
 import { DarkContext } from "../../utillls/context";
+import { motion } from "framer-motion";
+import { MdEmail } from "react-icons/md";
 
 export default function Contact() {
   const { dark, setDark } = useContext(DarkContext);
@@ -34,7 +36,8 @@ export default function Contact() {
 
         phone: "null",
       }));
-    } else {
+
+      return;
     }
     localStorage.clear();
   }
@@ -47,26 +50,71 @@ export default function Contact() {
             : "bg-primary_white  text-primary"
         } `}
       >
-        <div className="flex flex-col items-center justify-center h-full p-4 sm:flex-row">
-          <div className="w-[50%]"></div>
-          <div
-            className={`w-[50%] h-full  ${
+        <div className="flex flex-col h-full p-4 sm:flex-row gap-x-4 gap-y-2">
+          <motion.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 3,
+            }}
+            transition={{
+              duration: 2,
+            }}
+            className={`sm:w-[50%] border-accent border h-fit text-description  flex flex-col gap-y-7 p-4
+  ${dark != "false" ? "bg-secondary  " : "bg-secondary_white  "} 
+            `}
+          >
+            <div className="flex items-center gap-x-3 ">
+              <img src="/contact_image/gmail.png" alt="" className="h-12" />
+              <h1 className="">dilanthanayanajith@gmail.com</h1>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <img src="/contact_image/phone.png" alt="" className="h-12" />
+              <h1>0714931304</h1>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 3,
+            }}
+            transition={{
+              duration: 2,
+            }}
+            className={`sm:w-[50%] h-full  ${
               dark != "false" ? "bg-secondary  " : "bg-secondary_white  "
             } `}
           >
             <form
               onSubmit={handleSubmit}
-              className="h-full p-4 border border-accent"
+              className="h-full p-4 overflow-hidden border border-accent"
             >
               <div className="flex flex-col h-full justify-evenly">
-                <h1 className="py-6 font-bold text-main_title">GET IN TOUCH</h1>
+                <motion.h1
+                  className="py-6 font-bold text-indigo-400 text-main_title"
+                  initial={{}}
+                  animate={{ width: "100%" }}
+                  transition={{
+                    duration: 1,
+                  }}
+                >
+                  GET IN TOUCH
+                </motion.h1>
                 <h1 className="py-4 font-bold text-secondary_title">
                   I'm always open to new ideas and <br /> opportunities. Let’s
                   talk!
                 </h1>
 
                 <div className="flex flex-col gap-y-15 placeholder:text-amber-400">
-                  <input
+                  <motion.input
+                    initial={{ width: 12 }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: 1,
+                    }}
                     type="text"
                     value={data.name}
                     onChange={handleformData}
@@ -76,7 +124,12 @@ export default function Contact() {
                     required
                     autoFocus
                   />
-                  <input
+                  <motion.input
+                    initial={{ width: 12 }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: 1,
+                    }}
                     type="email"
                     value={data.email}
                     onChange={handleformData}
@@ -86,25 +139,34 @@ export default function Contact() {
                     placeholder="Enter your email address "
                   />
 
-                  <input
+                  <motion.input
+                    initial={{ width: 12 }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: 1,
+                    }}
                     type="number"
                     value={data.phone}
                     onChange={handleformData}
                     ref={inputRef}
                     className={`h-12 border rounded-md border-accent${
                       err
-                        ? " placeholder:text-red-500  "
-                        : " placeholder:text-gray-400"
+                        ? " placeholder:text-red-500  border-red-500 "
+                        : " placeholder:text-gray-400 "
                     }`}
                     name="phone"
                     required
                     placeholder={`${
                       err ? "Invalid Mobile Number" : "Enter Your Mobile Number"
                     } `}
-                    max="10"
                   />
 
-                  <textarea
+                  <motion.textarea
+                    initial={{ width: 12 }}
+                    animate={{ width: "100%" }}
+                    transition={{
+                      duration: 1,
+                    }}
                     name="message"
                     id=""
                     value={data.message}
@@ -112,7 +174,7 @@ export default function Contact() {
                     className="border rounded-md h-15 border-accent placeholder:text-gray-400"
                     required
                     placeholder="Type your message here..."
-                  ></textarea>
+                  ></motion.textarea>
 
                   <button
                     type="submit"
@@ -123,7 +185,7 @@ export default function Contact() {
                 </div>
               </div>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </>
