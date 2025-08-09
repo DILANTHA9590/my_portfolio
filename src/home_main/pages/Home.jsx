@@ -34,7 +34,7 @@ export default function Home() {
 
           <div className="w-full max-w-xs sm:max-w-sm">
             <a
-              href="/cv.pdf"
+              href="/Dilantha_Nayanajith_Resume.pdf"
               download
               className="flex items-center justify-center h-12 p-4 font-semibold text-white transition rounded-lg w-50 gap-x-3 bg-accent hover:bg-purple-700"
             >
