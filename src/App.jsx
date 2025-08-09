@@ -9,7 +9,9 @@ import { DarkContext } from "./utillls/context";
 import { h1 } from "framer-motion/client";
 
 function App() {
-  const [dark, setDark] = useState(() => localStorage.getItem("darkmode"));
+  const [dark, setDark] = useState(() =>
+    localStorage.getItem("darkmode" || true)
+  );
 
   return (
     <>
