@@ -1,13 +1,13 @@
 import React, { useContext, useRef, useState } from "react";
-import { BiPhone } from "react-icons/bi";
+
 import { Link } from "react-router-dom";
 import "react-phone-input-2/lib/style.css";
-import PhoneInput from "react-phone-input-2";
+
 import { DarkContext } from "../../utillls/context";
 import { motion } from "framer-motion";
-import { MdEmail } from "react-icons/md";
-import emailjs from "emailjs-com";
+
 import { sendEmail } from "../../utillls/sendMail";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Contact() {
   const { dark, setDark } = useContext(DarkContext);
@@ -62,16 +62,16 @@ export default function Contact() {
             transition={{
               duration: 2,
             }}
-            className={`sm:w-[50%] border-accent border h-fit text-description  flex flex-col gap-y-7 p-4
+            className={`sm:w-[50%] border-accent border h-fit text-description font-bold flex flex-col gap-y-7 p-4
   ${dark != "false" ? "bg-secondary  " : "bg-secondary_white  "} 
             `}
           >
             <div className="flex items-center gap-x-3 ">
-              <img src="/contact_image/gmail.png" alt="" className="h-12" />
+              <img src="/contact_image/gmail.png" alt="" className="h-10" />
               <h1 className="">dilanthanayanajith@gmail.com</h1>
             </div>
             <div className="flex items-center gap-x-3">
-              <img src="/contact_image/phone.png" alt="" className="h-12" />
+              <img src="/contact_image/phone.png" alt="" className="h-10" />
               <h1>0714931304</h1>
             </div>
             <div className="flex items-center gap-x-3">
@@ -81,7 +81,8 @@ export default function Contact() {
                 className="flex items-center gap-x-3"
               >
                 <img src="/contact_image/linkind.png" alt="" className="h-12" />
-                <h1>Linkind Account</h1>
+                <h1>LinkedIn Profile</h1>
+                <FaExternalLinkAlt className="block" />
               </Link>
             </div>
 
@@ -92,7 +93,8 @@ export default function Contact() {
                 className="flex items-center gap-x-3"
               >
                 <img src="/contact_image/github.png" alt="" className="h-12" />
-                <h1>Github Account</h1>
+                <h1>GitHub Profile</h1>
+                <FaExternalLinkAlt />
               </Link>
             </div>
           </motion.div>
