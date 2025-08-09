@@ -34,11 +34,18 @@ export default function Project() {
           <div className="flex items-center text-center justify-evenly">
             <div className="flex flex-col items-center justify-center">
               <FaGithub className="" />
-              <Link>View Code</Link>
+              <Link
+                target="#blank"
+                to="https://github.com/DILANTHA9590/cbc-frontend"
+              >
+                View Code
+              </Link>
             </div>
             <div className="flex flex-col items-center justify-center">
               <FaExternalLinkAlt />
-              <Link>Live Demo</Link>
+              <Link to="https://cbc-frontend-five.vercel.app/" target="#blank">
+                Live Demo
+              </Link>
             </div>
           </div>
         </div>
@@ -63,11 +70,21 @@ export default function Project() {
           <div className="flex items-center text-center justify-evenly ">
             <div className="flex flex-col items-center justify-center">
               <FaGithub className="" />
-              <Link>View Code</Link>
+              <Link
+                target="#blank"
+                to="https://github.com/DILANTHA9590/Hotel-booking-frontend"
+              >
+                View Code
+              </Link>
             </div>
             <div className="flex flex-col items-center justify-center">
               <FaExternalLinkAlt />
-              <Link>Live Demo</Link>
+              <Link
+                to="https://hotel-booking-frontend-eight.vercel.app/"
+                target="#blank"
+              >
+                Live Demo
+              </Link>
             </div>
           </div>
         </div>
@@ -93,11 +110,21 @@ export default function Project() {
           <div className="flex items-center text-center justify-evenly">
             <div className="flex flex-col items-center justify-center">
               <FaGithub />
-              <Link>View Code</Link>
+              <Link
+                target="#blank"
+                to="https://github.com/DILANTHA9590/my_portfolio"
+              >
+                View Code
+              </Link>
             </div>
             <div className="flex flex-col items-center justify-center">
               <FaExternalLinkAlt />
-              <Link>Live Demo</Link>
+              <Link
+                to="https://my-portfolio-pi-pearl-60.vercel.app/"
+                target="#blank"
+              >
+                Live Demo
+              </Link>
             </div>
           </div>
         </div>
@@ -121,11 +148,18 @@ export default function Project() {
           <div className="flex items-center text-center justify-evenly">
             <div className="flex flex-col items-center justify-center">
               <FaGithub />
-              <Link>View Code</Link>
+              <Link
+                target="#blank"
+                to="https://github.com/DILANTHA9590/paws_care_frontend"
+              >
+                View Code
+              </Link>
             </div>
             <div className="flex flex-col items-center justify-center">
               <FaExternalLinkAlt />
-              <Link>Live Demo</Link>
+              <Link to="https://paws-care-frontend.vercel.app/" target="#blank">
+                Live Demo
+              </Link>
             </div>
           </div>
         </div>
