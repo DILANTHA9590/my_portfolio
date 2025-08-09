@@ -14,11 +14,9 @@ export function sendEmail({ name, email, phone, message }) {
       `${import.meta.env.VITE_PUBLIC_KEY}` // Public key
     )
     .then((result) => {
-      console.log(result.text);
       toast.success("📧 Email sent successfully!");
     })
     .catch((error) => {
-      console.log(error.text);
       toast.error("⚠️ Failed to send email. Please try again!");
     });
 }
