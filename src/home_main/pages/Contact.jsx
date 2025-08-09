@@ -6,6 +6,8 @@ import PhoneInput from "react-phone-input-2";
 import { DarkContext } from "../../utillls/context";
 import { motion } from "framer-motion";
 import { MdEmail } from "react-icons/md";
+import emailjs from "emailjs-com";
+import { sendEmail } from "../../utillls/sendMail";
 
 export default function Contact() {
   const { dark, setDark } = useContext(DarkContext);
@@ -19,7 +21,6 @@ export default function Contact() {
 
   const inputRef = useRef();
 
-  console.log(data.setErr);
   function handleformData(e) {
     const { name, value } = e.target;
 
@@ -36,10 +37,10 @@ export default function Contact() {
 
         phone: "null",
       }));
-
       return;
     }
-    localStorage.clear();
+
+    sendEmail(data);
   }
   return (
     <>
@@ -72,6 +73,27 @@ export default function Contact() {
             <div className="flex items-center gap-x-3">
               <img src="/contact_image/phone.png" alt="" className="h-12" />
               <h1>0714931304</h1>
+            </div>
+            <div className="flex items-center gap-x-3">
+              <Link
+                to="https://www.linkedin.com/in/dilantha-nayanajith-9a1545297/"
+                target="_blank"
+                className="flex items-center gap-x-3"
+              >
+                <img src="/contact_image/linkind.png" alt="" className="h-12" />
+                <h1>Linkind Account</h1>
+              </Link>
+            </div>
+
+            <div className="flex items-center gap-x-3">
+              <Link
+                to="https://github.com/DILANTHA9590"
+                target="_blank"
+                className="flex items-center gap-x-3"
+              >
+                <img src="/contact_image/github.png" alt="" className="h-12" />
+                <h1>Github Account</h1>
+              </Link>
             </div>
           </motion.div>
           <motion.div
