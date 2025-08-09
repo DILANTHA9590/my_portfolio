@@ -11,6 +11,7 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
 import ProjectMain from "./pages/ProjectMain";
 import NavBar from "./components/homelayout/NavBar";
+import Experience from "./pages/Experience";
 
 export default function HomeLayout() {
   const [line, setLine] = React.useState("HOME");
@@ -23,6 +24,7 @@ export default function HomeLayout() {
     { name: "SERVICES", path: "/services" },
     { name: "PROJECTS", path: "/projects" },
     { name: "CONTACT", path: "/contact" },
+    { name: "EXPERIENCE", path: "/experience" },
   ];
 
   const handleDarkMode = (value) => {
@@ -163,6 +165,7 @@ export default function HomeLayout() {
               <Route path="services" element={<Services />} />
               <Route path="projects/*" element={<ProjectMain />} />
               <Route path="contact" element={<Contact />} />
+              <Route path="experience" element={<Experience />} />
 
               {/* <Route path="pe" element={<SuspenseUi />} /> */}
             </Routes>
