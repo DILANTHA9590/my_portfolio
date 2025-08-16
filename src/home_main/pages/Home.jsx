@@ -48,7 +48,7 @@ export default function Home() {
         <div className="sm:w-[45%] flex justify-center items-center h-[40vh] sm:h-auto mt-2">
           <div className="relative w-full  sm:max-w-[400px] md:max-w-[500px] aspect-square rounded-full bg-[#761E1E] justify-center items-center mt-64 sm:mt-0 ">
             <motion.img
-              src="/propic.png"
+              src="/propic1.png"
               alt="user_logo"
               className=""
               initial={{ opacity: 0, scale: 0.8 }}
@@ -86,7 +86,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/github.png"
               alt="framer_logo"
-              className="absolute w-10 right-16 top-18 sm:w-20 md:w-24 sm:hidden animate-pulse"
+              className="absolute w-10 right-26 top-18 sm:w-20 md:w-24 sm:hidden animate-pulse"
             />
 
             <motion.img
@@ -139,7 +139,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/github.png"
               alt="framer_logo"
-              className="absolute hidden w-10 top-30 right-9 left-80 sm:w-20 md:w-24 sm:block animate-pulse"
+              className="absolute hidden w-10 top-38 left-92 sm:w-15 md:w-19 sm:block animate-pulse"
             />
 
             <motion.img
