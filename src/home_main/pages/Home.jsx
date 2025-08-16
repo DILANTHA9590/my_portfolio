@@ -46,11 +46,11 @@ export default function Home() {
 
         {/* Image Section */}
         <div className="sm:w-[45%] flex justify-center items-center h-[40vh] sm:h-auto mt-2">
-          <div className="relative w-full  sm:max-w-[400px] md:max-w-[500px] aspect-square rounded-full bg-[#761E1E] ">
+          <div className="relative w-full  sm:max-w-[400px] md:max-w-[500px] aspect-square rounded-full bg-[#761E1E] justify-center items-center mt-64 sm:mt-0 ">
             <motion.img
-              src="/home_icons/testuser.png"
+              src="/propic.png"
               alt="user_logo"
-              // className="absolute w-20 -left-10 sm:w-24"
+              className=""
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
