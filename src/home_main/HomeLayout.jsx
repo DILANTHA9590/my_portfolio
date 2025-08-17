@@ -12,6 +12,7 @@ import { CiLight } from "react-icons/ci";
 import ProjectMain from "./pages/ProjectMain";
 import NavBar from "./components/homelayout/NavBar";
 import Experience from "./pages/Experience";
+import { init } from "emailjs-com";
 
 export default function HomeLayout() {
   // track active nav link
@@ -56,6 +57,56 @@ export default function HomeLayout() {
           dark != "false" ? "bg-primary" : "bg-primary_white"
         } font-inter`}
       >
+        <motion.div className="absolute inset-0 z-50 flex h-full">
+          <motion.div
+            className="w-1/4 bg-accent "
+            initial={{
+              height: "100%",
+            }}
+            animate={{
+              height: "0%",
+            }}
+            transition={{
+              duration: 0.5,
+            }}
+          ></motion.div>
+          <motion.div
+            className="w-1/4 h-full bg-amber-500"
+            initial={{
+              height: "100%",
+            }}
+            animate={{
+              height: "0%",
+            }}
+            transition={{
+              duration: 1,
+            }}
+          ></motion.div>
+          <motion.div
+            className="w-1/4 h-full bg-amber-950"
+            initial={{
+              height: "100%",
+            }}
+            animate={{
+              height: "0%",
+            }}
+            transition={{
+              duration: 1.5,
+            }}
+          ></motion.div>
+          <motion.div
+            className="w-1/4 h-full bg-amber-100"
+            initial={{
+              height: "100%",
+            }}
+            animate={{
+              height: "0%",
+            }}
+            transition={{
+              duration: 2,
+            }}
+          ></motion.div>
+        </motion.div>
         {/* fixed contact icons (left side bottom) */}
         <div className="fixed bottom-0 hidden text-white sm:block">
           <Link to="contact">
@@ -68,24 +119,27 @@ export default function HomeLayout() {
               alt=""
             />
           </Link>
-          <Link>
+          <Link to="https://github.com/DILANTHA9590" target="#">
             <motion.img
               initial={{ x: -100 }}
               animate={{ x: 0 }}
               transition={{ duration: 1 }}
               src="/contact_image/github.png"
               className="w-13"
-              alt="1"
+              alt="github_icon"
             />
           </Link>
-          <Link>
+          <Link
+            to="https://www.linkedin.com/in/dilantha-nayanajith-9a1545297/"
+            target="#"
+          >
             <motion.img
               initial={{ x: -100 }}
               animate={{ x: 0 }}
               transition={{ duration: 1.5 }}
               src="/contact_image/linkind.png"
               className="w-14"
-              alt=""
+              alt="linkIn icon"
             />
           </Link>
         </div>
