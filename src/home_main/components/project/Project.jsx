@@ -3,10 +3,21 @@ import { FaGithub } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { DarkContext } from "../../../utillls/context";
+import { motion } from "framer-motion";
+import { GiDuration } from "react-icons/gi";
 export default function Project() {
   const { dark } = useContext(DarkContext);
   return (
-    <div
+    <motion.div
+      initial={{
+        opacity: 0,
+      }}
+      animate={{
+        opacity: 3,
+      }}
+      transition={{
+        duration: 1,
+      }}
       className={`flex flex-col w-full h-full font-inter gap-y-5 font-bold ${
         dark !== "false" ? "text-primary_white" : "text-secondary "
       }`}
@@ -164,6 +175,6 @@ export default function Project() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
