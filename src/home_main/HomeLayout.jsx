@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { DarkContext } from "../utillls/context";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
@@ -14,10 +14,16 @@ import NavBar from "./components/homelayout/NavBar";
 import Experience from "./pages/Experience";
 
 export default function HomeLayout() {
+  // track active nav link
   const [line, setLine] = React.useState("HOME");
+  // handle mobile menu show/hide
   const [show, setShowMenu] = React.useState(false);
+  // show contact overlay on right side
+  const [showContact, setShowContact] = useState(false);
+  // dark mode state from context
   const { dark, setDark } = useContext(DarkContext);
 
+  // navigation links for top menu
   const navLinks = [
     { name: "HOME", path: "/" },
     { name: "ABOUT", path: "/about" },
@@ -27,10 +33,12 @@ export default function HomeLayout() {
     { name: "EXPERIENCE", path: "/experience" },
   ];
 
+  // store dark mode value in local storage
   const handleDarkMode = (value) => {
     localStorage.setItem("darkmode", value);
   };
 
+  // read dark mode value from local storage and set context
   function checkDarkMode() {
     const darkMode = localStorage.getItem("darkmode");
     if (darkMode !== "false") {
@@ -42,26 +50,66 @@ export default function HomeLayout() {
 
   return (
     <>
+      {/* main layout wrapper */}
       <div
-        className={`h-[100vh] overflow-hidden overflow-y-auto ${
+        className={`h-[100vh] overflow-hidden overflow-y-auto relative ${
           dark != "false" ? "bg-primary" : "bg-primary_white"
         } font-inter`}
       >
-        <div className="sm:w-[80%] mx-auto">
+        {/* fixed contact icons (left side bottom) */}
+        <div className="fixed bottom-0 hidden text-white sm:block">
+          <Link to="contact">
+            <motion.img
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 0.5 }}
+              src="/contact_image/gmail.png"
+              className="w-13"
+              alt=""
+            />
+          </Link>
+          <Link>
+            <motion.img
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1 }}
+              src="/contact_image/github.png"
+              className="w-13"
+              alt="1"
+            />
+          </Link>
+          <Link>
+            <motion.img
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1.5 }}
+              src="/contact_image/linkind.png"
+              className="w-14"
+              alt=""
+            />
+          </Link>
+        </div>
+
+        {/* main container */}
+        <div className="sm:w-[80%] mx-auto relative">
           <div className="relative flex flex-col ">
+            {/* fixed navbar */}
             <div className="fixed sm:w-[80%] w-[100%] z-60 top-0">
               <div
-                className={`sm:h-[15vh]  flex justify-between items-center relative    ${
+                className={`sm:h-[15vh] flex justify-between items-center relative ${
                   dark != "false"
                     ? "bg-secondary  text-white"
                     : "bg-secondary_white "
                 }`}
               >
+                {/* logo / name */}
                 <div>
-                  <h1 className="text-xl font-bold sm:text-main_title">
+                  <Link className="text-xl font-bold sm:text-main_title" to="/">
                     DILANTHA
-                  </h1>
+                  </Link>
                 </div>
+
+                {/* desktop menu links */}
                 <div className="hidden sm:block">
                   <div className="flex gap-5 font-bold text-description ">
                     {navLinks.map((link) => (
@@ -80,6 +128,8 @@ export default function HomeLayout() {
                     ))}
                   </div>
                 </div>
+
+                {/* dark mode toggle + hamburger menu */}
                 <div className="flex items-center justify-center h-full">
                   <div>
                     {dark != "false" ? (
@@ -104,13 +154,16 @@ export default function HomeLayout() {
                     )}
                   </div>
 
+                  {/* hamburger button */}
                   <div className="h-full p-4">
                     <div
                       className="flex flex-col items-center justify-center p-3 px-5 rounded-md cursor-pointer h-18 w-18 sm:h-full sm:w-27 bg-accent"
-                      onClick={() => setShowMenu(!show)}
+                      onClick={() => {
+                        setShowMenu(!show), setShowContact(!showContact);
+                      }}
                     >
                       {show ? (
-                        // Improved X icon with smooth animation
+                        // X icon (close menu)
                         <div className="relative w-6 h-6">
                           <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform rotate-45 origin-center"></div>
                           <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform -rotate-45 origin-center"></div>
@@ -128,8 +181,10 @@ export default function HomeLayout() {
                 </div>
               </div>
             </div>
+
+            {/* mobile menu dropdown */}
             <motion.div
-              className={`fixed top-[15vh] left-0 w-full z-50  border-t-2 border-b-2 border-t-accent sm:hidden border-b-accent 
+              className={`fixed top-[15vh] left-0 w-full z-50 border-t-2 border-b-2 border-t-accent sm:hidden border-b-accent 
                 ${!show && "hidden"}
                 ${dark != "false" ? "bg-secondary" : "bg-secondary_white"}`}
               initial={false}
@@ -158,6 +213,7 @@ export default function HomeLayout() {
               </motion.div>
             </motion.div>
           </div>
+          {/* main page content (routes switch here) */}
           <div className="h-[85vh] ">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -166,10 +222,27 @@ export default function HomeLayout() {
               <Route path="projects/*" element={<ProjectMain />} />
               <Route path="contact" element={<Contact />} />
               <Route path="experience" element={<Experience />} />
-
               {/* <Route path="pe" element={<SuspenseUi />} /> */}
             </Routes>
           </div>
+          {/* right side contact overlay animation */}
+          <AnimatePresence>
+            {showContact && (
+              <motion.div
+                className="absolute top-0 right-0 sm:w-1/2 "
+                initial={{}}
+                animate={{}}
+                transition={{
+                  duration: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                }}
+              >
+                <Contact />
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </>
