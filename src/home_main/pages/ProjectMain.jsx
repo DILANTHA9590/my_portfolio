@@ -7,7 +7,7 @@ import { DarkContext } from "../../utillls/context";
 
 export default function ProjectMain() {
   const { dark, setDark } = useContext(DarkContext);
-  const [selectButton, setSelectButton] = useState("");
+  const [selectButton, setSelectButton] = useState("project");
   return (
     <>
       <div
