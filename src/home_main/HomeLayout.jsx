@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 
 import About from "./pages/About";
@@ -23,6 +23,8 @@ export default function HomeLayout() {
   const [showContact, setShowContact] = useState(false);
   // dark mode state from context
   const { dark, setDark } = useContext(DarkContext);
+  // set flag for controll overlay animation  z index
+  const [flag, setFlag] = useState(true); // 1️⃣ initial state true
 
   // navigation links for top menu
   const navLinks = [
@@ -48,6 +50,16 @@ export default function HomeLayout() {
       setDark(darkMode);
     }
   }
+  // put use effect for handle  overlay animation z iondex
+  useEffect(() => {
+    if (flag) {
+      const timer = setTimeout(() => {
+        setFlag(false);
+      }, 2100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [flag]);
 
   return (
     <>
@@ -57,7 +69,9 @@ export default function HomeLayout() {
           dark != "false" ? "bg-primary" : "bg-primary_white"
         } font-inter`}
       >
-        <motion.div className="absolute inset-0 z-50 flex h-full">
+        <motion.div
+          className={`absolute inset-0  flex h-full ${flag ? "z-50" : "z-0"}`}
+        >
           <motion.div
             className="w-1/4 bg-accent "
             initial={{
