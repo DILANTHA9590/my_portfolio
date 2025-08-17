@@ -297,7 +297,7 @@ export default function HomeLayout() {
           <AnimatePresence>
             {showContact && (
               <motion.div
-                className="absolute top-0 right-0 sm:w-1/2 "
+                className="absolute top-0 right-0 hidden sm:w-1/2 sm:block"
                 initial={{}}
                 animate={{}}
                 transition={{
