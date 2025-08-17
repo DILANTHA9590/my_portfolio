@@ -20,7 +20,9 @@ export default function Home() {
         <div className="sm:w-[55%] flex flex-col justify-center items-start gap-y-5 sm:gap-y-8">
           <div className="text-xl font-bold leading-tight sm:text-main_title">
             <h1>HI, I'M DILANTHA NAYANAJITH!</h1>
-            <h1>A STUDENT AND FULL STACK DEVELOPER</h1>
+            <h1>
+              SOFTWARE ENGINEERING STUDENT | <br /> FULL STACK DEVELOPER
+            </h1>
           </div>
 
           <div className="text-sm sm:text-description md:max-w-lg ">
