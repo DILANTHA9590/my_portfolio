@@ -86,7 +86,7 @@ export default function Home() {
               transition={{ duration: 2 }}
               src="/home_icons/github.png"
               alt="framer_logo"
-              className="absolute w-10 right-26 top-18 sm:w-20 md:w-24 sm:hidden animate-pulse"
+              className="absolute w-10 right-26 top-10 sm:w-20 md:w-24 sm:hidden animate-pulse"
             />
 
             <motion.img
