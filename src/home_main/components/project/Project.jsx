@@ -37,6 +37,8 @@ export default function Project() {
               src="/project_images/cosmmatic_e_template.png"
               alt=""
               className="w-7xl"
+              decoding="async"
+              loading="lazy"
             />
           </div>
           <div>
@@ -73,6 +75,8 @@ export default function Project() {
               src="/project_images/Hotel_booking_template.png"
               alt=""
               className="w-7xl"
+              decoding="async"
+              loading="lazy"
             />
           </div>
           <div className="text-center ">
@@ -113,6 +117,8 @@ export default function Project() {
               src="/project_images/portfolio_template.png"
               alt=""
               className="w-7xl"
+              decoding="async"
+              loading="lazy"
             />
           </div>
           <div>
@@ -151,6 +157,8 @@ export default function Project() {
               src="/project_images/vet_site_template.png"
               alt=""
               className="w-7xl"
+              decoding="async"
+              loading="lazy"
             />
           </div>
           <div>
