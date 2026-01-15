@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineFileDownload } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import { DarkContext } from "../../utillls/context";
+  import { ImSpinner2 } from "react-icons/im";
 
 export default function Home() {
   const { dark } = useContext(DarkContext);
+  const [cv ,setCv]=useState(false);
 
-  console.log("hello", dark);
+
+
+
   return (
     <div
       className={`flex flex-col justify-center h-full min-h-full px-4  font-inter sm:px-6 lg:px-8  mt-[15vh] ${
@@ -34,14 +38,24 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="w-full max-w-xs sm:max-w-sm">
+          <div className="w-full max-w-xs sm:max-w-sm"
+            title={
+   cv
+      ? "Download my CV"
+      : "My CV is currently being updated"
+  }
+          >
             <a
-              href="/Dilantha_Nayanajith_Resume.pdf"
-              download
-              className="flex items-center justify-center h-12 p-4 font-semibold text-white transition rounded-lg w-50 gap-x-3 bg-accent hover:bg-purple-700"
+              href={cv ? "/Dilantha_Nayanajith_Resume.pdf" : ''}
+   
+              className={`flex items-center justify-center h-12 p-4 font-semibold text-white transition rounded-lg w-50 gap-x-3 ${cv ? "bg-accent hover:bg-purple-700" : "bg-gray-500 hover:bg-gray-600"} `}
             >
-              <button>Download CV</button>
-              <MdOutlineFileDownload className="text-xl" />
+              <button
+              >{cv ? "Download CV" : "Updating CV"}</button>
+               {
+                cv ? <MdOutlineFileDownload className="text-xl" /> :  <ImSpinner2 className="text-lg animate-spin" />
+
+               }
             </a>
           </div>
         </div>
