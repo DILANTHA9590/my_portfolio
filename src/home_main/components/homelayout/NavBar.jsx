@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { DarkContext } from "../../../utillls/context";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
+import { HiX } from "react-icons/hi";
 
 export default function NavBar() {
-  const [line, setLine] = React.useState("HOME");
-  const [show, setShowMenu] = React.useState(false);
-
+  const location = useLocation();
+  const [showMenu, setShowMenu] = useState(false);
   const { dark, setDark } = useContext(DarkContext);
 
   const navLinks = [
@@ -17,117 +17,196 @@ export default function NavBar() {
     { name: "SERVICES", path: "/services" },
     { name: "PROJECTS", path: "/projects" },
     { name: "CONTACT", path: "/contact" },
+    { name: "EXPERIENCE", path: "/experience" },
   ];
+
+  // Close menu when route changes
+  useEffect(() => {
+    setShowMenu(false);
+  }, [location]);
+
+  // Handle dark mode toggle
+  const handleDarkMode = (isDark) => {
+    setDark(isDark ? "true" : "false");
+    localStorage.setItem("darkMode", isDark ? "true" : "false");
+  };
+
+  // Get active link based on current path
+  const isActive = (path) => {
+    if (path === "/" && location.pathname === "/") return true;
+    if (path !== "/" && location.pathname.startsWith(path)) return true;
+    return false;
+  };
+
   return (
     <>
-      <div className="relative flex flex-col ">
-        <div className="fixed sm:w-[80%] w-[100%] z-60 top-0">
-          <div
-            className={`sm:h-[15vh]  flex justify-between items-center relative    ${
-              dark != "false"
-                ? "bg-secondary  text-white"
-                : "bg-secondary_white "
-            }`}
-          >
-            <div>
-              <h1 className="text-xl font-bold sm:text-main_title">DILANTHA</h1>
-            </div>
-            <div className="hidden sm:block">
-              <div className="flex gap-5 font-bold text-description ">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    onClick={() => {
-                      setLine(link.name);
-                    }}
-                    to={link.path}
-                    className={`transition-colors hover:text-accent ${
-                      line === link.name && "text-accent"
+      {/* Navigation Bar */}
+      <motion.nav
+        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-lg border-b ${
+          dark != "false"
+            ? "bg-secondary/95 border-gray-700 text-white"
+            : "bg-secondary_white/95 border-gray-200 text-primary"
+        }`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
+            {/* Logo */}
+            <Link to="/">
+              <motion.h1
+                className="text-xl sm:text-2xl md:text-3xl font-black bg-gradient-to-r from-accent via-purple-500 to-pink-500 bg-clip-text text-transparent cursor-pointer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                DILANTHA
+              </motion.h1>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link key={link.name} to={link.path}>
+                  <motion.div
+                    className={`relative px-4 py-2 font-semibold text-sm transition-colors ${
+                      isActive(link.path)
+                        ? "text-accent"
+                        : dark != "false"
+                        ? "text-gray-300 hover:text-white"
+                        : "text-gray-600 hover:text-primary"
                     }`}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
                     {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center justify-center h-full">
-              <div>
-                {dark != "false" ? (
-                  <motion.div
-                    initial={{ rotate: 0 }}
-                    animate={{ rotate: 180 }}
-                    onClick={() => {
-                      handleDarkMode(false);
-                      checkDarkMode();
-                    }}
-                  >
-                    <CiLight className="h-20 w-15" />
+                    {isActive(link.path) && (
+                      <motion.div
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent via-purple-500 to-pink-500"
+                        layoutId="activeLink"
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
                   </motion.div>
-                ) : (
-                  <MdOutlineDarkMode
-                    className="h-20 text-yellow-400 w-15"
-                    onClick={() => {
-                      handleDarkMode(true);
-                      checkDarkMode();
-                    }}
-                  />
-                )}
-              </div>
+                </Link>
+              ))}
+            </div>
 
-              <div className="h-full p-4">
-                <div
-                  className="flex flex-col items-center justify-center p-3 px-5 rounded-md cursor-pointer h-18 w-18 sm:h-full sm:w-27 bg-accent"
-                  onClick={() => setShowMenu(!show)}
-                >
-                  {show ? (
-                    // Improved X icon with smooth animation
-                    <div className="relative w-6 h-6">
-                      <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform rotate-45 origin-center"></div>
-                      <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform -rotate-45 origin-center"></div>
-                    </div>
+            {/* Right Side Controls */}
+            <div className="flex items-center gap-3">
+              {/* Dark Mode Toggle */}
+              <motion.button
+                onClick={() => handleDarkMode(dark === "false")}
+                className={`p-2 rounded-lg transition-colors ${
+                  dark != "false"
+                    ? "bg-gray-700 hover:bg-gray-600"
+                    : "bg-gray-200 hover:bg-gray-300"
+                }`}
+                whileHover={{ scale: 1.1, rotate: 180 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+              >
+                {dark != "false" ? (
+                  <CiLight className="w-6 h-6 text-yellow-400" />
+                ) : (
+                  <MdOutlineDarkMode className="w-6 h-6 text-gray-700" />
+                )}
+              </motion.button>
+
+              {/* Mobile Menu Button */}
+              <motion.button
+                onClick={() => setShowMenu(!showMenu)}
+                className="lg:hidden p-2 rounded-lg bg-gradient-to-r from-accent via-purple-500 to-pink-500"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="w-6 h-6 flex items-center justify-center">
+                  {showMenu ? (
+                    <HiX className="w-5 h-5 text-white" />
                   ) : (
-                    // Hamburger icon (three lines)
-                    <div className="space-y-1.5 w-6">
-                      <div className="w-full bg-black h-0.5"></div>
-                      <div className="w-full bg-black h-0.5"></div>
-                      <div className="w-full bg-black h-0.5"></div>
+                    <div className="space-y-1.5">
+                      <motion.div
+                        className="w-5 h-0.5 bg-white"
+                        animate={{ rotate: showMenu ? 45 : 0, y: showMenu ? 6 : 0 }}
+                      />
+                      <motion.div
+                        className="w-5 h-0.5 bg-white"
+                        animate={{ opacity: showMenu ? 0 : 1 }}
+                      />
+                      <motion.div
+                        className="w-5 h-0.5 bg-white"
+                        animate={{ rotate: showMenu ? -45 : 0, y: showMenu ? -6 : 0 }}
+                      />
                     </div>
                   )}
                 </div>
-              </div>
+              </motion.button>
             </div>
           </div>
         </div>
-        <motion.div
-          className={`fixed top-[15vh] left-0 w-full z-50  border-t-2 border-b-2 border-t-accent sm:hidden border-b-accent 
-                ${!show && "hidden"}
-                ${dark != "false" ? "bg-secondary" : "bg-[#eaeaea]"}`}
-          initial={false}
-          animate={{ top: show ? "15vh" : "-100%" }}
-        >
-          <motion.div
-            className={`flex flex-col items-center ${
-              dark !== "false" ? "text-primary_white" : "text-secondary"
-            } justify-center h-full gap-5 p-3 font-bold text-description sm:hidden `}
-          >
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                onClick={() => {
-                  setLine(link.name);
-                  setShowMenu(false);
-                }}
-                to={link.path}
-                className={`transition-colors hover:text-accent ${
-                  line === link.name && "text-accent"
-                }`}
-              >
-                {link.name}
-              </Link>
-            ))}
-          </motion.div>
-        </motion.div>
-      </div>
+      </motion.nav>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {showMenu && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setShowMenu(false)}
+            />
+
+            {/* Mobile Menu */}
+            <motion.div
+              className={`fixed top-16 sm:top-20 left-0 right-0 z-40 lg:hidden overflow-hidden ${
+                dark != "false" ? "bg-secondary" : "bg-secondary_white"
+              }`}
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <div className="px-4 py-6 space-y-2 max-h-[70vh] overflow-y-auto">
+                {navLinks.map((link, index) => (
+                  <Link key={link.name} to={link.path}>
+                    <motion.div
+                      className={`relative p-4 rounded-xl font-semibold transition-all ${
+                        isActive(link.path)
+                          ? "bg-gradient-to-r from-accent via-purple-500 to-pink-500 text-white shadow-lg"
+                          : dark != "false"
+                          ? "bg-gray-800/50 text-gray-300 hover:bg-gray-700"
+                          : "bg-white/50 text-gray-700 hover:bg-gray-200"
+                      }`}
+                      initial={{ x: -100, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      whileHover={{ scale: 1.02, x: 5 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <span>{link.name}</span>
+                        {isActive(link.path) && (
+                          <motion.div
+                            className="w-2 h-2 bg-white rounded-full"
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ duration: 0.3 }}
+                          />
+                        )}
+                      </div>
+                    </motion.div>
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -25,6 +25,7 @@ export default function HomeLayout() {
   const { dark, setDark } = useContext(DarkContext);
   // set flag for controll overlay animation  z index
   const [flag, setFlag] = useState(true); // 1️⃣ initial state true
+  const navigate = useNavigate();
 
   // navigation links for top menu
   const navLinks = [
@@ -61,11 +62,25 @@ export default function HomeLayout() {
     }
   }, [flag]);
 
+  // On large screens jump straight to Contact; on small toggle the menu
+  const handlePrimaryButtonClick = () => {
+    if (typeof window !== "undefined" && window.innerWidth >= 1024) {
+      setLine("CONTACT");
+      setShowMenu(false);
+      setShowContact(false);
+      navigate("/contact");
+      return;
+    }
+
+    setShowContact(false);
+    setShowMenu((prev) => !prev);
+  };
+
   return (
     <>
       {/* main layout wrapper */}
       <div
-        className={`h-[100vh] overflow-hidden overflow-y-auto relative ${
+        className={`min-h-screen overflow-x-hidden overflow-y-auto relative ${
           dark != "false" ? "bg-primary" : "bg-primary_white"
         } font-inter`}
       >
@@ -162,7 +177,7 @@ export default function HomeLayout() {
         <div className="sm:w-[80%] mx-auto relative">
           <div className="relative flex flex-col ">
             {/* fixed navbar */}
-            <div className="fixed sm:w-[80%] w-[100%] z-60 top-0">
+            <div className="fixed sm:w-[80%] w-[100%] z-[110] top-0">
               <div
                 className={`sm:h-[15vh] flex justify-between items-center relative ${
                   dark != "false"
@@ -226,11 +241,9 @@ export default function HomeLayout() {
                   <div className="h-full p-4">
                     <div
                       className="flex flex-col items-center justify-center p-3 px-5 rounded-md cursor-pointer h-18 w-18 sm:h-full sm:w-27 bg-accent"
-                      onClick={() => {
-                        setShowMenu(!show), setShowContact(!showContact);
-                      }}
+                      onClick={handlePrimaryButtonClick}
                     >
-                      {show ? (
+                      {show || showContact ? (
                         // X icon (close menu)
                         <div className="relative w-6 h-6">
                           <div className="absolute top-1/2 left-0 w-full bg-black h-0.5 transform rotate-45 origin-center"></div>
@@ -251,38 +264,46 @@ export default function HomeLayout() {
             </div>
 
             {/* mobile menu dropdown */}
-            <motion.div
-              className={`fixed top-[15vh] left-0 w-full z-50 border-t-2 border-b-2 border-t-accent sm:hidden border-b-accent 
-                ${!show && "hidden"}
-                ${dark != "false" ? "bg-secondary" : "bg-secondary_white"}`}
-              initial={false}
-              animate={{ top: show ? "15vh" : "-100%" }}
-            >
-              <motion.div
-                className={`flex flex-col items-center ${
-                  dark !== "false" ? "text-primary_white" : "text-secondary"
-                } justify-center h-full gap-5 p-3 font-bold text-description sm:hidden `}
-              >
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    onClick={() => {
-                      setLine(link.name);
-                      setShowMenu(false);
-                    }}
-                    to={link.path}
-                    className={`transition-colors hover:text-accent ${
-                      line === link.name && "text-accent"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </motion.div>
-            </motion.div>
+            {show && (
+              <div className="fixed inset-0 z-[200] sm:hidden">
+                {/* backdrop */}
+                <div
+                  className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+                  onClick={() => setShowMenu(false)}
+                />
+                {/* panel */}
+                <motion.div
+                  className={`absolute left-0 right-0 top-[72px] mx-3 rounded-2xl shadow-2xl border border-accent overflow-hidden ${
+                    dark != "false" ? "bg-secondary text-primary_white" : "bg-secondary_white text-secondary"
+                  }`}
+                  initial={{ y: -220, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: -220, opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 240, damping: 22 }}
+                >
+                  <div className="flex flex-col items-center justify-center gap-4 p-5 font-bold text-description">
+                    {navLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        onClick={() => {
+                          setLine(link.name);
+                          setShowMenu(false);
+                        }}
+                        to={link.path}
+                        className={`w-full text-center py-2 rounded-lg transition-colors hover:text-accent ${
+                          line === link.name && "text-accent"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            )}
           </div>
           {/* main page content (routes switch here) */}
-          <div className="h-[85vh] ">
+          <div className="min-h-[calc(100vh-80px)] pb-12">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="about" element={<About />} />
@@ -296,19 +317,35 @@ export default function HomeLayout() {
           {/* right side contact overlay animation */}
           <AnimatePresence>
             {showContact && (
-              <motion.div
-                className="absolute top-0 right-0 hidden sm:w-1/2 sm:block"
-                initial={{}}
-                animate={{}}
-                transition={{
-                  duration: 1,
-                }}
-                exit={{
-                  opacity: 0,
-                }}
-              >
-                <Contact />
-              </motion.div>
+              <>
+                {/* Backdrop overlay */}
+                <motion.div
+                  className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[100]"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={() => {
+                    setShowContact(false);
+                    setShowMenu(false);
+                  }}
+                />
+                
+                {/* Contact overlay panel */}
+                <motion.div
+                  className="fixed top-0 right-0 h-full w-full sm:w-1/2 lg:w-2/5 z-[101] overflow-y-auto shadow-2xl"
+                  initial={{ x: "100%" }}
+                  animate={{ x: 0 }}
+                  exit={{ x: "100%" }}
+                  transition={{ 
+                    type: "spring",
+                    damping: 25,
+                    stiffness: 200,
+                  }}
+                >
+                  <Contact />
+                </motion.div>
+              </>
             )}
           </AnimatePresence>
         </div>

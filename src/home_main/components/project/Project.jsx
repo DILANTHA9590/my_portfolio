@@ -7,6 +7,31 @@ import { motion } from "framer-motion";
 import { GiDuration } from "react-icons/gi";
 export default function Project() {
   const { dark } = useContext(DarkContext);
+
+  const projects = [
+    {
+      title: "Cosmetic E-commerce Website",
+      image: "/project_images/cosmmatic_e_template.png",
+      codeUrl: "https://github.com/DILANTHA9590/cbc-frontend",
+      demoUrl: "https://cbc-frontend-five.vercel.app/",
+      disableDemo: true,
+    },
+    {
+      title: "Hotel Booking Website",
+      image: "/project_images/Hotel_booking_template.png",
+      codeUrl: "https://github.com/DILANTHA9590/Hotel-booking-frontend",
+      demoUrl: "https://hotel-booking-frontend-eight.vercel.app/",
+      disableDemo: true,
+    },
+    {
+      title: "Your All-in-One Pet Care Website",
+      image: "/project_images/vet_site_template.png",
+      codeUrl: "https://github.com/DILANTHA9590/paws_care_frontend",
+      demoUrl: "https://paws-care-frontend.vercel.app/",
+      disableDemo: false,
+    },
+  ];
+
   return (
     <motion.div
       initial={{
@@ -22,166 +47,46 @@ export default function Project() {
         dark !== "false" ? "text-primary_white" : "text-secondary "
       }`}
     >
-      {/* 
-        first 2 image */}
-      <div className="flex flex-col gap-1 text-center sm:flex-row sm:gap-x-7 gap-y-4 sm:gap-0">
-        {/* first Image  */}
-
-        <div
-          className={` bg-secondary ${
-            dark != "false" ? "bg-secondary" : "bg-secondary_white"
-          } `}
-        >
-          <div>
-            <img
-              src="/project_images/cosmmatic_e_template.png"
-              alt=""
-              className="w-7xl"
-              decoding="async"
-              loading="lazy"
-            />
-          </div>
-          <div>
-            <h1>Cosmetic E-commerce Website</h1>
-          </div>
-          <div className="flex items-center text-center justify-evenly">
-            <div className="flex flex-col items-center justify-center">
-              <FaGithub className="" />
-              <Link
-                target="#blank"
-                to="https://github.com/DILANTHA9590/cbc-frontend"
-              >
-                View Code
-              </Link>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-6">
+        {projects.map((project) => (
+          <div
+            key={project.title}
+            className={`w-full h-full rounded-2xl overflow-hidden border ${
+              dark != "false" ? "bg-secondary border-gray-700" : "bg-secondary_white border-gray-200"
+            } shadow-lg transition-transform duration-300 hover:scale-[1.01]`}
+          >
+            <div className="w-full">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-56 object-cover"
+                decoding="async"
+                loading="lazy"
+              />
             </div>
-            <div className="flex flex-col items-center justify-center">
-              <FaExternalLinkAlt />
-              <Link to="https://cbc-frontend-five.vercel.app/" target="#blank">
-                Live Demo
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* second image  */}
-
-        <div
-          className={`text-center   ${
-            dark != "false" ? "bg-secondary" : "bg-secondary_white"
-          } `}
-        >
-          <div>
-            <img
-              src="/project_images/Hotel_booking_template.png"
-              alt=""
-              className="w-7xl"
-              decoding="async"
-              loading="lazy"
-            />
-          </div>
-          <div className="text-center ">
-            <h1>Hotel Booking Website</h1>
-          </div>
-          <div className="flex items-center text-center justify-evenly ">
-            <div className="flex flex-col items-center justify-center">
-              <FaGithub className="" />
-              <Link
-                target="#blank"
-                to="https://github.com/DILANTHA9590/Hotel-booking-frontend"
-              >
-                View Code
-              </Link>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <FaExternalLinkAlt />
-              <Link
-                to="https://hotel-booking-frontend-eight.vercel.app/"
-                target="#blank"
-              >
-                Live Demo
-              </Link>
+            <div className="flex flex-col items-center gap-4 p-4 text-center">
+              <h1 className="text-lg sm:text-xl font-semibold">{project.title}</h1>
+              <div className="flex items-center justify-center gap-8">
+                <div className="flex flex-col items-center justify-center text-sm sm:text-base">
+                  <FaGithub />
+                  <Link target="#blank" to={project.codeUrl} className="underline">
+                    View Code
+                  </Link>
+                </div>
+                <div className="flex flex-col items-center justify-center text-sm sm:text-base">
+                  <FaExternalLinkAlt />
+                  {project.disableDemo ? (
+                    <span className="opacity-60 cursor-not-allowed">Live Demo</span>
+                  ) : (
+                    <Link target="#blank" to={project.demoUrl} className="underline">
+                      Live Demo
+                    </Link>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      {/* second 2 image */}
-      <div className="flex flex-col gap-5 pb-5 mb-5 sm:flex-row ">
-        {/* first image  */}
-        <div
-          className={`text-center  ${
-            dark != "false" ? "bg-secondary" : "bg-secondary_white"
-          } `}
-        >
-          <div>
-            <img
-              src="/project_images/portfolio_template.png"
-              alt=""
-              className="w-7xl"
-              decoding="async"
-              loading="lazy"
-            />
-          </div>
-          <div>
-            <h1>My PortFolio site</h1>
-          </div>
-          <div className="flex items-center text-center justify-evenly">
-            <div className="flex flex-col items-center justify-center">
-              <FaGithub />
-              <Link
-                target="#blank"
-                to="https://github.com/DILANTHA9590/my_portfolio"
-              >
-                View Code
-              </Link>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <FaExternalLinkAlt />
-              <Link
-                to="https://my-portfolio-pi-pearl-60.vercel.app/"
-                target="#blank"
-              >
-                Live Demo
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* second image  */}
-        <div
-          className={`bg-secondary   ${
-            dark != "false" ? "bg-secondary" : "bg-secondary_white"
-          } `}
-        >
-          <div>
-            <img
-              src="/project_images/vet_site_template.png"
-              alt=""
-              className="w-7xl"
-              decoding="async"
-              loading="lazy"
-            />
-          </div>
-          <div>
-            <h1 className="text-center">Your All-in-One Pet Care Website</h1>
-          </div>
-          <div className="flex items-center text-center justify-evenly">
-            <div className="flex flex-col items-center justify-center">
-              <FaGithub />
-              <Link
-                target="#blank"
-                to="https://github.com/DILANTHA9590/paws_care_frontend"
-              >
-                View Code
-              </Link>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <FaExternalLinkAlt />
-              <Link to="https://paws-care-frontend.vercel.app/" target="#blank">
-                Live Demo
-              </Link>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </motion.div>
   );
