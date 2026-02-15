@@ -27,14 +27,27 @@ export default function Home() {
   }, []);
 
   // Tech stack icons with positions
-  const techIcons = [
+  // Desktop / laptop positions (unchanged)
+  const techIconsDesktop = [
     { src: "/home_icons/framer.png", alt: "Framer Motion", className: "absolute w-16 left-9 top-24 sm:w-20 md:w-24", delay: 0.2 },
     { src: "/home_icons/react.png", alt: "React.js", className: "absolute top-0 right-0 w-10 sm:w-20 md:w-24", delay: 0.4 },
     { src: "/home_icons/github.png", alt: "GitHub", className: "absolute w-10 top-38 left-92 sm:w-15 md:w-19", delay: 0.6 },
+    { src: "/home_icons/icons8-nestjs-240.png", alt: "NestJS", className: "absolute w-14 right-85 top-50 sm:w-16 md:w-18", delay: 0.7 },
     { src: "/home_icons/nextjs.png", alt: "Next.js", className: "absolute top-70 right-12 sm:w-20 md:w-15", delay: 0.8 },
     { src: "/home_icons/nodejs.png", alt: "Node.js", className: "absolute top-90 right-0 sm:w-20 w-15", delay: 1.0 },
     { src: "/home_icons/mongo.png", alt: "MongoDB", className: "absolute right-0 w-20 top-60 md:w-15", delay: 1.2 },
     { src: "/home_icons/tailwind.png", alt: "Tailwind CSS", className: "absolute -right-10 top-30 sm:w-20 md:w-24", delay: 1.4 },
+  ];
+
+  // Mobile-specific positions (tighter around the portrait)
+  const techIconsMobile = [
+    { src: "/home_icons/react.png", alt: "React.js", className: "absolute w-11 right-45 top-8", delay: 0.3 },
+    { src: "/home_icons/icons8-nestjs-240.png", alt: "NestJS", className: "absolute w-11 right-6 top-20", delay: 0.4 },
+    { src: "/home_icons/nextjs.png", alt: "Next.js", className: "absolute w-15 right-5 top-36", delay: 0.5 },
+    { src: "/home_icons/nodejs.png", alt: "Node.js", className: "absolute w-11 right-5 bottom-50", delay: 0.7 },
+    { src: "/home_icons/mongo.png", alt: "MongoDB", className: "absolute w-11 left-2 bottom-35", delay: 0.9 },
+    { src: "/home_icons/tailwind.png", alt: "Tailwind CSS", className: "absolute w-11 left-5 top-26", delay: 1.1 },
+    { src: "/home_icons/framer.png", alt: "Framer Motion", className: "absolute w-11 left-7 top-44", delay: 1.3 },
   ];
 
   // Social links
@@ -184,13 +197,42 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             />
 
-            {/* Animated Tech Stack Icons */}
-            {techIcons.map((icon, index) => (
+            {/* Desktop/Laptop Tech Stack Icons */}
+            {techIconsDesktop.map((icon, index) => (
               <motion.img
-                key={`${icon.alt}-${index}`}
+                key={`desktop-${icon.alt}-${index}`}
                 src={icon.src}
                 alt={icon.alt}
                 className={`${icon.className} hidden sm:block`}
+                initial={{ opacity: 0, scale: 0, rotate: -180 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                  rotate: 0,
+                  y: [0, -10, 0],
+                }}
+                transition={{
+                  opacity: { duration: 0.5, delay: icon.delay },
+                  scale: { duration: 0.5, delay: icon.delay },
+                  rotate: { duration: 0.8, delay: icon.delay },
+                  y: {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: icon.delay,
+                  },
+                }}
+                whileHover={{ scale: 1.2, rotate: 360 }}
+              />
+            ))}
+
+            {/* Mobile Tech Stack Icons */}
+            {techIconsMobile.map((icon, index) => (
+              <motion.img
+                key={`mobile-${icon.alt}-${index}`}
+                src={icon.src}
+                alt={icon.alt}
+                className={`${icon.className} sm:hidden`}
                 initial={{ opacity: 0, scale: 0, rotate: -180 }}
                 animate={{
                   opacity: 1,

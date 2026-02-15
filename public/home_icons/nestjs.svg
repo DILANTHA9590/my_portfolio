@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="NestJS placeholder">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e0234e" />
+      <stop offset="1" stop-color="#b5123a" />
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="26" fill="url(#g)" />
+  <path d="M48 100V28h14l22 35V28h12v72H82L60 63v37H48z" fill="#fff"/>
+</svg>
