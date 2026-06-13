@@ -2,7 +2,15 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { DarkContext } from "../../utillls/context";
-import { FaCode, FaLaptopCode, FaServer, FaMobile, FaPalette, FaRocket } from "react-icons/fa";
+
+import {
+  FaCode,
+  FaLaptopCode,
+  FaServer,
+  FaRocket,
+  FaPalette,
+  FaSitemap,
+} from "react-icons/fa";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 40, scale: 0.9 },
@@ -21,56 +29,87 @@ const cardVariants = {
 export default function Services() {
   const { dark } = useContext(DarkContext);
 
-  const services = [
-    {
-      icon: FaCode,
-      title: "Frontend Development",
-      description: "Crafting responsive and interactive UIs using React, Next.js, Tailwind CSS, and Framer Motion for stunning user experiences.",
-      gradient: "from-blue-500 to-cyan-500",
-      bgGradient: dark !== "false" ? "from-blue-900/30 to-cyan-900/30" : "from-blue-50 to-cyan-50",
-      borderColor: dark !== "false" ? "border-blue-700/50" : "border-blue-200",
-    },
-    {
-      icon: FaLaptopCode,
-      title: "Full-Stack Development",
-      description: "End-to-end web solutions with modern technologies including REST APIs, React, Node.js, and MongoDB for complete applications.",
-      gradient: "from-purple-500 to-pink-500",
-      bgGradient: dark !== "false" ? "from-purple-900/30 to-pink-900/30" : "from-purple-50 to-pink-50",
-      borderColor: dark !== "false" ? "border-purple-700/50" : "border-purple-200",
-    },
-    {
-      icon: FaServer,
-      title: "Backend Development",
-      description: "Building secure, scalable APIs and server-side logic with Node.js, Express, and database integration for robust applications.",
-      gradient: "from-green-500 to-emerald-500",
-      bgGradient: dark !== "false" ? "from-green-900/30 to-emerald-900/30" : "from-green-50 to-emerald-50",
-      borderColor: dark !== "false" ? "border-green-700/50" : "border-green-200",
-    },
-    {
-      icon: FaMobile,
-      title: "Responsive Design",
-      description: "Creating mobile-first, responsive layouts that work seamlessly across all devices and screen sizes.",
-      gradient: "from-orange-500 to-red-500",
-      bgGradient: dark !== "false" ? "from-orange-900/30 to-red-900/30" : "from-orange-50 to-red-50",
-      borderColor: dark !== "false" ? "border-orange-700/50" : "border-orange-200",
-    },
-    {
-      icon: FaPalette,
-      title: "UI/UX Design",
-      description: "Designing clean, modern interfaces with attention to user experience, accessibility, and visual aesthetics.",
-      gradient: "from-pink-500 to-rose-500",
-      bgGradient: dark !== "false" ? "from-pink-900/30 to-rose-900/30" : "from-pink-50 to-rose-50",
-      borderColor: dark !== "false" ? "border-pink-700/50" : "border-pink-200",
-    },
-    {
-      icon: FaRocket,
-      title: "Performance Optimization",
-      description: "Optimizing applications for speed, SEO, and best practices to deliver lightning-fast user experiences.",
-      gradient: "from-indigo-500 to-purple-500",
-      bgGradient: dark !== "false" ? "from-indigo-900/30 to-purple-900/30" : "from-indigo-50 to-purple-50",
-      borderColor: dark !== "false" ? "border-indigo-700/50" : "border-indigo-200",
-    },
-  ];
+const services = [
+{
+icon: FaServer,
+title: "Backend Development",
+description:
+"Building secure and scalable backend applications using Node.js, NestJS, Express.js, and TypeScript with a focus on clean architecture and maintainable code.",
+gradient: "from-green-500 to-emerald-500",
+bgGradient: dark !== "false"
+? "from-green-900/30 to-emerald-900/30"
+: "from-green-50 to-emerald-50",
+borderColor: dark !== "false"
+? "border-green-700/50"
+: "border-green-200",
+},
+{
+icon: FaCode,
+title: "API Development",
+description:
+"Designing and developing RESTful APIs with authentication, authorization, RBAC, validation, and secure business logic implementation.",
+gradient: "from-blue-500 to-cyan-500",
+bgGradient: dark !== "false"
+? "from-blue-900/30 to-cyan-900/30"
+: "from-blue-50 to-cyan-50",
+borderColor: dark !== "false"
+? "border-blue-700/50"
+: "border-blue-200",
+},
+{
+icon: FaLaptopCode,
+title: "Full Stack Development",
+description:
+"Developing complete web applications using React.js, Node.js, NestJS, MongoDB, and MySQL with modern development practices.",
+gradient: "from-purple-500 to-pink-500",
+bgGradient: dark !== "false"
+? "from-purple-900/30 to-pink-900/30"
+: "from-purple-50 to-pink-50",
+borderColor: dark !== "false"
+? "border-purple-700/50"
+: "border-purple-200",
+},
+{
+icon: FaRocket,
+title: "Cloud & DevOps",
+description:
+"Deploying and managing applications using Docker, AWS EC2, VPS infrastructure, Linux environments, and CI/CD automation workflows.",
+gradient: "from-orange-500 to-red-500",
+bgGradient: dark !== "false"
+? "from-orange-900/30 to-red-900/30"
+: "from-orange-50 to-red-50",
+borderColor: dark !== "false"
+? "border-orange-700/50"
+: "border-orange-200",
+},
+{
+icon: FaPalette,
+title: "Database Design",
+description:
+"Working with MongoDB, MySQL, and Redis to build efficient database structures, optimize queries, and implement caching solutions.",
+gradient: "from-pink-500 to-rose-500",
+bgGradient: dark !== "false"
+? "from-pink-900/30 to-rose-900/30"
+: "from-pink-50 to-rose-50",
+borderColor: dark !== "false"
+? "border-pink-700/50"
+: "border-pink-200",
+},
+{
+icon: FaSitemap,
+title: "System Architecture",
+description:
+"Designing scalable software solutions using microservices architecture, RBAC, REST APIs, caching strategies, and modern software engineering principles.",
+gradient: "from-indigo-500 to-purple-500",
+bgGradient: dark !== "false"
+? "from-indigo-900/30 to-purple-900/30"
+: "from-indigo-50 to-purple-50",
+borderColor: dark !== "false"
+? "border-indigo-700/50"
+: "border-indigo-200",
+},
+];
+
 
   return (
     <motion.div

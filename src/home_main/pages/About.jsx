@@ -64,46 +64,74 @@ export default function About() {
         <div className="flex flex-col h-full px-4 pt-8 gap-y-13 max-w-7xl mx-auto">
           
           {/* About Me Section with Enhanced Design */}
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            {/* Title with gradient underline */}
-            <div className="relative inline-block mb-8">
-              <h1 className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-accent via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                ABOUT ME
-              </h1>
-              <motion.div
-                className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500 rounded-full"
-                initial={{ width: 0 }}
-                whileInView={{ width: "100%" }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                viewport={{ once: true }}
-              />
-            </div>
+       <motion.div
+className="relative"
+initial={{ opacity: 0, y: 50 }}
+whileInView={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.6 }}
+viewport={{ once: true }}
 
-            {/* Bio Card */}
-            <motion.div
-              className={`p-6 sm:p-8 rounded-2xl backdrop-blur-sm border ${
-                dark != "false" 
-                  ? "bg-gray-800/50 border-gray-700" 
-                  : "bg-white/50 border-gray-200"
-              } shadow-xl`}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-base sm:text-lg leading-relaxed">
-                Hi, I'm <span className="font-bold text-accent">Dilantha Nayanajith</span>—a Full-Stack Developer with a strong passion for architecting robust backends and scalable systems. While I enjoy building complete web applications, my primary focus lies in designing structured APIs, secure authentication flows, and high-performance business logic.
-                <br/><br/>
-                From engineering ERP-style systems to implementing fine-grained Role-Based Access Control (RBAC), I prioritize writing clean, maintainable, and production-ready code. I thrive at the intersection of security and scalability, continuously refining my approach to build reliable software that solves real-world problems.
-              </p>
-            </motion.div>
-          </motion.div>
+>
+
+{/* Title with gradient underline */}
+
+  <div className="relative inline-block mb-8">
+    <h1 className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-accent via-purple-500 to-pink-500 bg-clip-text text-transparent">
+      ABOUT ME
+    </h1>
+    <motion.div
+      className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-accent via-purple-500 to-pink-500 rounded-full"
+      initial={{ width: 0 }}
+      whileInView={{ width: "100%" }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+      viewport={{ once: true }}
+    />
+  </div>
+
+{/* Bio Card */}
+<motion.div
+className={`p-6 sm:p-8 rounded-2xl backdrop-blur-sm border ${
+      dark !== "false"
+        ? "bg-gray-800/50 border-gray-700"
+        : "bg-white/50 border-gray-200"
+    } shadow-xl`}
+initial={{ opacity: 0, scale: 0.95 }}
+whileInView={{ opacity: 1, scale: 1 }}
+transition={{ duration: 0.6, delay: 0.2 }}
+viewport={{ once: true }}
+
+>
+
+```
+<p className="text-base sm:text-lg leading-relaxed">
+```
+
+```
+  Hi, I'm{" "}
+  <span className="font-bold text-accent">
+    Dilantha Nayanajith
+  </span>
+  , an Associate Software Engineer and Full-Stack Developer passionate
+  about building scalable web applications and backend systems. I
+  specialize in developing secure REST APIs, authentication and
+  authorization systems, and modern full-stack solutions using React.js,
+  Node.js, NestJS, and cloud technologies.
+
+  <br />
+  <br />
+
+  With hands-on experience in ERP systems, microservices architecture,
+  Docker-based deployments, and AWS infrastructure, I focus on delivering
+  maintainable, production-ready software that solves real-world business
+  problems. I continuously explore backend engineering, cloud
+  technologies, and software architecture to build reliable and scalable
+  applications.
+</p>
+```
+
+</motion.div>
+</motion.div>
+
 
           {/* Skills Section with Tabs */}
           <motion.div
@@ -216,104 +244,187 @@ export default function About() {
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Frontend */}
-              <motion.div
-                className={`p-6 rounded-xl ${
-                  dark != "false" 
-                    ? "bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-700/50" 
-                    : "bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200"
-                } backdrop-blur-sm`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <FaCode className="text-3xl text-blue-400" />
-                  <h3 className="text-xl font-bold">Frontend</h3>
-                </div>
-                <p className="text-sm sm:text-base">
-                  <strong>Languages & Frameworks:</strong> HTML5, CSS3, JavaScript (ES6+), React.js, Next.js<br/>
-                  <strong>Styling:</strong> Tailwind CSS, Framer Motion<br/>
-                  <strong>Concepts:</strong> Responsive Design, Component Architecture
-                </p>
-              </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-              {/* Backend */}
-              <motion.div
-                className={`p-6 rounded-xl ${
-                  dark != "false" 
-                    ? "bg-gradient-to-br from-green-900/30 to-emerald-900/30 border border-green-700/50" 
-                    : "bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200"
-                } backdrop-blur-sm`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <FaServer className="text-3xl text-green-400" />
-                  <h3 className="text-xl font-bold">Backend</h3>
-                </div>
-                <p className="text-sm sm:text-base">
-                  <strong>Frameworks:</strong> Node.js, NestJS, Express.js<br/>
-                  <strong>Language:</strong> TypeScript<br/>
-                  <strong>APIs:</strong> RESTful API Design<br/>
-                  <strong>Auth & Security:</strong> JWT, RBAC<br/>
-                  <strong>Payments:</strong> Stripe Integration
-                </p>
-              </motion.div>
+{/* Architecture & Engineering Approach */}
+<motion.div
+className={`p-6 rounded-xl ${
+      dark != "false"
+        ? "bg-gradient-to-br from-blue-900/30 to-cyan-900/30 border border-blue-700/50"
+        : "bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200"
+    } backdrop-blur-sm`}
+initial={{ opacity: 0, scale: 0.9 }}
+whileInView={{ opacity: 1, scale: 1 }}
+transition={{ duration: 0.5 }}
+viewport={{ once: true }}
+whileHover={{ scale: 1.02 }}
 
-              {/* Database */}
-              <motion.div
-                className={`p-6 rounded-xl ${
-                  dark != "false" 
-                    ? "bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-700/50" 
-                    : "bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200"
-                } backdrop-blur-sm`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <FaDatabase className="text-3xl text-purple-400" />
-                  <h3 className="text-xl font-bold">Databases</h3>
-                </div>
-                <p className="text-sm sm:text-base">
-                  <strong>NoSQL:</strong> MongoDB<br/>
-                  <strong>SQL:</strong> MySQL <br />
-                  <strong>Redis:(Caching / In-Memory Store)</strong>
-                </p>
-              </motion.div>
+>
 
-              {/* Cloud & Deployment */}
-              <motion.div
-                className={`p-6 rounded-xl ${
-                  dark != "false" 
-                    ? "bg-gradient-to-br from-orange-900/30 to-red-900/30 border border-orange-700/50" 
-                    : "bg-gradient-to-br from-orange-50 to-red-50 border border-orange-200"
-                } backdrop-blur-sm`}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <FaCloud className="text-3xl text-orange-400" />
-                  <h3 className="text-xl font-bold">Cloud & Deployment</h3>
-                </div>
-                <p className="text-sm sm:text-base">
-                  <strong>Platforms:</strong> AWS (EC2, S3), Vercel, Netlify, Render<br/>
-                  <strong>DevOps:</strong> CI/CD Pipelines (GitHub Actions), Docker
-                </p>
-              </motion.div>
-            </div>
+```
+<div className="flex items-center gap-3 mb-4">
+```
+
+```
+  <FaCode className="text-3xl text-blue-400" />
+  <h3 className="text-xl font-bold">Architecture & Engineering Approach</h3>
+</div>
+
+<div className="flex flex-wrap gap-2">
+  {[
+    "API First Design",
+    "RBAC",
+    "Dockerized Deployments",
+    "Microservices",
+  ].map((item) => (
+    <span
+      key={item}
+      className="px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-sm font-medium"
+    >
+      {item}
+    </span>
+  ))}
+</div>
+```
+
+</motion.div>
+
+{/* Development Workflow */}
+<motion.div
+className={`p-6 rounded-xl ${
+      dark != "false"
+        ? "bg-gradient-to-br from-green-900/30 to-emerald-900/30 border border-green-700/50"
+        : "bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200"
+    } backdrop-blur-sm`}
+initial={{ opacity: 0, scale: 0.9 }}
+whileInView={{ opacity: 1, scale: 1 }}
+transition={{ duration: 0.5, delay: 0.1 }}
+viewport={{ once: true }}
+whileHover={{ scale: 1.02 }}
+
+>
+
+```
+<div className="flex items-center gap-3 mb-4">
+```
+
+```
+  <FaServer className="text-3xl text-green-400" />
+  <h3 className="text-xl font-bold">Development Workflow</h3>
+</div>
+
+<div className="flex flex-wrap gap-2">
+  {[
+    "Git & GitHub",
+    "Code Reviews",
+    "Agile",
+    "CI/CD",
+    "API Testing",
+    "Debugging",
+  ].map((item) => (
+    <span
+      key={item}
+      className="px-3 py-1 rounded-full bg-green-500/20 text-green-400 text-sm font-medium"
+    >
+      {item}
+    </span>
+  ))}
+</div>
+```
+
+</motion.div>
+
+{/* What I Focus On */}
+<motion.div
+className={`p-6 rounded-xl ${
+      dark != "false"
+        ? "bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-700/50"
+        : "bg-gradient-to-br from-purple-50 to-pink-50 border border-purple-200"
+    } backdrop-blur-sm`}
+initial={{ opacity: 0, scale: 0.9 }}
+whileInView={{ opacity: 1, scale: 1 }}
+transition={{ duration: 0.5, delay: 0.2 }}
+viewport={{ once: true }}
+whileHover={{ scale: 1.02 }}
+
+>
+
+```
+<div className="flex items-center gap-3 mb-4">
+```
+
+```
+  <FaDatabase className="text-3xl text-purple-400" />
+  <h3 className="text-xl font-bold">What I Focus On</h3>
+</div>
+
+<div className="flex flex-wrap gap-2">
+  {[
+    "Full Stack",
+    "System Design",
+    "Cloud",
+    "DevOps",
+    "Scalable Apps",
+  ].map((item) => (
+    <span
+      key={item}
+      className="px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-sm font-medium"
+    >
+      {item}
+    </span>
+  ))}
+</div>
+```
+
+</motion.div>
+
+{/* Deployment & Infrastructure */}
+<motion.div
+className={`p-6 rounded-xl ${
+      dark != "false"
+        ? "bg-gradient-to-br from-orange-900/30 to-red-900/30 border border-orange-700/50"
+        : "bg-gradient-to-br from-orange-50 to-red-50 border border-orange-200"
+    } backdrop-blur-sm`}
+initial={{ opacity: 0, scale: 0.9 }}
+whileInView={{ opacity: 1, scale: 1 }}
+transition={{ duration: 0.5, delay: 0.3 }}
+viewport={{ once: true }}
+whileHover={{ scale: 1.02 }}
+
+>
+
+```
+<div className="flex items-center gap-3 mb-4">
+```
+
+```
+  <FaCloud className="text-3xl text-orange-400" />
+  <h3 className="text-xl font-bold">Deployment & Infrastructure</h3>
+</div>
+
+<div className="flex flex-wrap gap-2">
+  {[
+    "Docker",
+    "Nginx",
+    "VPS",
+    "AWS EC2",
+    "Redis",
+    "CI/CD",
+  ].map((item) => (
+    <span
+      key={item}
+      className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-400 text-sm font-medium"
+    >
+      {item}
+    </span>
+  ))}
+</div>
+```
+
+</motion.div>
+
+</div>
+
           </motion.div>
 
           {/* Currently Learning Section */}
@@ -350,7 +461,7 @@ export default function About() {
                 viewport={{ once: true }}
               >
                 <p className="text-sm sm:text-base leading-relaxed">
-                  Continuously expanding my backend expertise through hands-on exploration of Python (FastAPI), Linux server environments, and containerized deployment workflows using Docker and CI/CD.
+                Currently expanding my expertise in FastAPI, Linux server administration, advanced AWS services, system design, scalability, and distributed systems to strengthen my backend and cloud engineering capabilities.
                 </p>
               </motion.div>
             </div>

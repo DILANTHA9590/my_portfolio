@@ -5,6 +5,7 @@ import { HiMail } from "react-icons/hi";
 import { motion, useAnimation } from "framer-motion";
 import { DarkContext } from "../../utillls/context";
 import { ImSpinner2 } from "react-icons/im";
+import { IoCloudDownloadOutline } from "react-icons/io5";
 
 export default function Home() {
   const { dark } = useContext(DarkContext);
@@ -124,7 +125,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 1 }}
               className="text-sm sm:text-base font-medium opacity-80 italic mt-2"
             >
-              Crafting digital experiences with code & creativity ✨
+              Building scalable software, secure backend systems, and cloud-powered solutions 🚀 ✨
             </motion.p>
           </div>
 
@@ -135,10 +136,8 @@ export default function Home() {
             className="text-sm sm:text-description md:max-w-lg"
           >
             <h3>
-              I'm a passionate student and full-stack developer focused on
-              building modern, user-friendly web applications. I enjoy turning
-              ideas into responsive, elegant digital experiences that feel great
-              to use.
+              I'm an Associate Software Engineer and Full-Stack Developer focused on building scalable web applications, secure backend systems, and modern software solutions using React.js, Node.js, NestJS, Docker, and AWS.
+
             </h3>
           </motion.div>
 
@@ -149,12 +148,13 @@ export default function Home() {
             className="flex gap-4 items-center"
           >
             <a
-              href="#"
+              href="/Dilantha_Nayanajith_CV.pdf"
               title="CV is being updated"
-              className="flex items-center justify-center h-12 px-6 font-semibold text-white transition-all duration-300 rounded-lg gap-x-3 bg-gray-500 cursor-not-allowed"
+                download="Dilantha_Nayanajith_CV.pdf"
+              className="flex items-center justify-center h-12 px-6 font-semibold text-white transition-all duration-300 rounded-lg gap-x-3 bg-gray-500 "
             >
-              <span>Updating CV</span>
-              <ImSpinner2 className="text-lg animate-spin" />
+              <span>Download CV</span>
+              <IoCloudDownloadOutline className="text-lg"/>
             </a>
 
             {/* Social Links */}
